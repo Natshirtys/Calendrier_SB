@@ -1,0 +1,162 @@
+[
+  {
+    "id": "1",
+    "titre": "Grand Concours en Doublette de Lyon",
+    "type": "doublette",
+    "date": "2026-03-15",
+    "heureDebut": "08:30",
+    "heureFin": "18:00",
+    "lieu": {
+      "nom": "Boulodrome Municipal de Lyon",
+      "adresse": "45 rue de la Boule d'Or",
+      "ville": "Lyon",
+      "codePostal": "69003"
+    },
+    "contact": {
+      "nom": "Jean-Pierre Durand",
+      "telephone": "04 72 33 45 67",
+      "email": "jp.durand@boules-lyon.fr"
+    },
+    "affiche": "/affiches/test1.jpg",
+    "description": "Grand concours annuel en doublette ouvert à tous les licenciés. Terrain couvert, buvette et restauration sur place.",
+    "inscription": {
+      "prix": 20,
+      "dateLimite": "2026-03-10"
+    },
+    "categorie": "Seniors",
+    "dotation": "800€ + coupes",
+    "nombreEquipesMax": 32,
+    "organisateur": "Boule Lyonnaise du 3ème"
+  },
+  {
+    "id": "2",
+    "titre": "Triplette de Villeurbanne",
+    "type": "triplette",
+    "date": "2026-03-22",
+    "heureDebut": "09:00",
+    "lieu": {
+      "nom": "Boulodrome Léon Blum",
+      "adresse": "12 avenue Henri Barbusse",
+      "ville": "Villeurbanne",
+      "codePostal": "69100"
+    },
+    "contact": {
+      "nom": "Marie Fontaine",
+      "telephone": "04 78 84 12 34"
+    },
+    "description": "Concours en triplette amical. Ambiance conviviale, ouvert aux non-licenciés.",
+    "inscription": {
+      "prix": 15
+    },
+    "categorie": "Toutes catégories",
+    "dotation": "400€ + lots",
+    "nombreEquipesMax": 24,
+    "organisateur": "La Boule Villeurbannaise"
+  },
+  {
+    "id": "3",
+    "titre": "Championnat Quadrette du Rhône",
+    "type": "quadrette",
+    "date": "2026-04-05",
+    "heureDebut": "08:00",
+    "heureFin": "19:00",
+    "lieu": {
+      "nom": "Complexe Sportif des Iris",
+      "adresse": "8 rue des Sports",
+      "ville": "Vénissieux",
+      "codePostal": "69200"
+    },
+    "contact": {
+      "nom": "Robert Martinez",
+      "telephone": "04 72 50 67 89",
+      "email": "r.martinez@cd69-boules.fr"
+    },
+    "description": "Championnat départemental en quadrette. Qualificatif pour le championnat régional.",
+    "inscription": {
+      "prix": 30,
+      "dateLimite": "2026-03-28"
+    },
+    "categorie": "Seniors",
+    "dotation": "1200€ + trophées",
+    "nombreEquipesMax": 16,
+    "organisateur": "Comité Départemental du Rhône"
+  },
+  {
+    "id": "4",
+    "titre": "Concours de Tir de Précision",
+    "type": "tir_precision",
+    "date": "2026-04-12",
+    "heureDebut": "14:00",
+    "heureFin": "18:00",
+    "lieu": {
+      "nom": "Boulodrome de la Croix-Rousse",
+      "adresse": "25 rue Hénon",
+      "ville": "Lyon",
+      "codePostal": "69004"
+    },
+    "contact": {
+      "nom": "Sylvie Perret",
+      "email": "s.perret@croix-rousse-boules.fr"
+    },
+    "description": "Concours de tir de précision individuel. Épreuve de précision au point et au tir progressif.",
+    "inscription": {
+      "prix": 10,
+      "dateLimite": "2026-04-10"
+    },
+    "categorie": "Toutes catégories",
+    "dotation": "300€",
+    "organisateur": "Boule Croix-Roussienne"
+  },
+  {
+    "id": "5",
+    "titre": "Tournoi Printanier en Doublette",
+    "type": "doublette",
+    "date": "2026-04-19",
+    "heureDebut": "09:00",
+    "lieu": {
+      "nom": "Boulodrome du Parc",
+      "adresse": "3 allée du Parc",
+      "ville": "Caluire-et-Cuire",
+      "codePostal": "69300"
+    },
+    "contact": {
+      "nom": "Patrick Blanc",
+      "telephone": "06 12 34 56 78"
+    },
+    "description": "Tournoi printanier convivial en doublette. Repas tiré du sac à midi.",
+    "inscription": {
+      "prix": 12
+    },
+    "dotation": "250€ + coupes",
+    "nombreEquipesMax": 20,
+    "organisateur": "Les Boules Caluiroises"
+  },
+  {
+    "id": "6",
+    "titre": "Nocturne Triplette de Bron",
+    "type": "triplette",
+    "date": "2026-05-10",
+    "heureDebut": "18:00",
+    "heureFin": "23:00",
+    "lieu": {
+      "nom": "Boulodrome Éclairé de Bron",
+      "adresse": "60 avenue Franklin Roosevelt",
+      "ville": "Bron",
+      "codePostal": "69500"
+    },
+    "contact": {
+      "nom": "Alain Moreau",
+      "telephone": "04 78 26 45 00",
+      "email": "contact@boules-bron.fr"
+    },
+    "description": "Concours nocturne en triplette sous les projecteurs. Ambiance festive, DJ et buvette.",
+    "inscription": {
+      "prix": 18,
+      "dateLimite": "2026-05-05"
+    },
+    "categorie": "Seniors",
+    "dotation": "600€ + surprises",
+    "nombreEquipesMax": 20,
+    "organisateur": "La Boule Brondillante"
+  }
+]
