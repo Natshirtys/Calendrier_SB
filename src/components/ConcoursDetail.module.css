@@ -110,6 +110,26 @@
   font-weight: 600;
 }
 
+.gcalBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  background: white;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.gcalBtn:hover {
+  background: var(--color-surface);
+  border-color: #4285F4;
+}
+
 .notFound {
   text-align: center;
   padding: 3rem;

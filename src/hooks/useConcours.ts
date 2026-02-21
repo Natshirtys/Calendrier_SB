@@ -4,7 +4,6 @@ import type { Concours, TypeConcours } from '../types/concours';
 
 export interface Filters {
   type?: TypeConcours;
-  ville?: string;
   mois?: number; // 0-11
   annee?: number;
 }
@@ -13,16 +12,10 @@ export function useConcours() {
   const [filters, setFilters] = useState<Filters>({});
   const concours = concoursData as Concours[];
 
-  const villes = useMemo(() => {
-    const set = new Set(concours.map((c) => c.lieu.ville));
-    return Array.from(set).sort();
-  }, [concours]);
-
   const filtered = useMemo(() => {
     return concours
       .filter((c) => {
         if (filters.type && c.type !== filters.type) return false;
-        if (filters.ville && c.lieu.ville !== filters.ville) return false;
         if (filters.mois !== undefined && filters.annee !== undefined) {
           const d = new Date(c.date);
           if (d.getMonth() !== filters.mois || d.getFullYear() !== filters.annee)
@@ -37,5 +30,5 @@ export function useConcours() {
 
   const getByDate = (date: string) => concours.filter((c) => c.date === date);
 
-  return { concours: filtered, allConcours: concours, filters, setFilters, villes, getById, getByDate };
+  return { concours: filtered, allConcours: concours, filters, setFilters, getById, getByDate };
 }

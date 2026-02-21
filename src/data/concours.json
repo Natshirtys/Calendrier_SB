@@ -1,162 +1,1715 @@
 [
   {
     "id": "1",
-    "titre": "Grand Concours en Doublette de Lyon",
-    "type": "doublette",
-    "date": "2026-03-15",
-    "heureDebut": "08:30",
-    "heureFin": "18:00",
+    "titre": "Concours 32 Doubles 3+4+IN Propagande",
+    "type": "concours",
+    "date": "2025-09-20",
+    "heureDebut": "08:00",
     "lieu": {
-      "nom": "Boulodrome Municipal de Lyon",
-      "adresse": "45 rue de la Boule d'Or",
-      "ville": "Lyon",
-      "codePostal": "69003"
+      "nom": "DOMERAT",
+      "ville": "DOMERAT",
+      "adresse": "",
+      "codePostal": ""
     },
     "contact": {
-      "nom": "Jean-Pierre Durand",
-      "telephone": "04 72 33 45 67",
-      "email": "jp.durand@boules-lyon.fr"
-    },
-    "affiche": "/affiches/test1.jpg",
-    "description": "Grand concours annuel en doublette ouvert à tous les licenciés. Terrain couvert, buvette et restauration sur place.",
-    "inscription": {
-      "prix": 20,
-      "dateLimite": "2026-03-10"
-    },
-    "categorie": "Seniors",
-    "dotation": "800€ + coupes",
-    "nombreEquipesMax": 32,
-    "organisateur": "Boule Lyonnaise du 3ème"
+      "nom": "Franck Muglia",
+      "telephone": "06 82 88 87 42"
+    }
   },
   {
     "id": "2",
-    "titre": "Triplette de Villeurbanne",
-    "type": "triplette",
-    "date": "2026-03-22",
-    "heureDebut": "09:00",
+    "titre": "NM3 étape n°1",
+    "type": "ch_regional_nm3",
+    "date": "2025-09-27",
+    "heureDebut": "",
     "lieu": {
-      "nom": "Boulodrome Léon Blum",
-      "adresse": "12 avenue Henri Barbusse",
-      "ville": "Villeurbanne",
-      "codePostal": "69100"
+      "nom": "RIOM ès MONTAGNE",
+      "ville": "RIOM ès MONTAGNE",
+      "adresse": "",
+      "codePostal": ""
     },
     "contact": {
-      "nom": "Marie Fontaine",
-      "telephone": "04 78 84 12 34"
-    },
-    "description": "Concours en triplette amical. Ambiance conviviale, ouvert aux non-licenciés.",
-    "inscription": {
-      "prix": 15
-    },
-    "categorie": "Toutes catégories",
-    "dotation": "400€ + lots",
-    "nombreEquipesMax": 24,
-    "organisateur": "La Boule Villeurbannaise"
+      "nom": "CBDA"
+    }
   },
   {
     "id": "3",
-    "titre": "Championnat Quadrette du Rhône",
-    "type": "quadrette",
-    "date": "2026-04-05",
-    "heureDebut": "08:00",
-    "heureFin": "19:00",
+    "titre": "Championnat départemental des A.S. 1",
+    "type": "ch_dep_as",
+    "date": "2025-10-04",
+    "heureDebut": "",
     "lieu": {
-      "nom": "Complexe Sportif des Iris",
-      "adresse": "8 rue des Sports",
-      "ville": "Vénissieux",
-      "codePostal": "69200"
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
     },
     "contact": {
-      "nom": "Robert Martinez",
-      "telephone": "04 72 50 67 89",
-      "email": "r.martinez@cd69-boules.fr"
-    },
-    "description": "Championnat départemental en quadrette. Qualificatif pour le championnat régional.",
-    "inscription": {
-      "prix": 30,
-      "dateLimite": "2026-03-28"
-    },
-    "categorie": "Seniors",
-    "dotation": "1200€ + trophées",
-    "nombreEquipesMax": 16,
-    "organisateur": "Comité Départemental du Rhône"
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
   },
   {
     "id": "4",
-    "titre": "Concours de Tir de Précision",
-    "type": "tir_precision",
-    "date": "2026-04-12",
-    "heureDebut": "14:00",
-    "heureFin": "18:00",
+    "titre": "NM3 étape n°2",
+    "type": "ch_regional_nm3",
+    "date": "2025-10-11",
+    "heureDebut": "",
     "lieu": {
-      "nom": "Boulodrome de la Croix-Rousse",
-      "adresse": "25 rue Hénon",
-      "ville": "Lyon",
-      "codePostal": "69004"
+      "nom": "NEUILLY LE REAL",
+      "ville": "NEUILLY LE REAL",
+      "adresse": "",
+      "codePostal": ""
     },
     "contact": {
-      "nom": "Sylvie Perret",
-      "email": "s.perret@croix-rousse-boules.fr"
-    },
-    "description": "Concours de tir de précision individuel. Épreuve de précision au point et au tir progressif.",
-    "inscription": {
-      "prix": 10,
-      "dateLimite": "2026-04-10"
-    },
-    "categorie": "Toutes catégories",
-    "dotation": "300€",
-    "organisateur": "Boule Croix-Roussienne"
+      "nom": "CBDA"
+    }
   },
   {
     "id": "5",
-    "titre": "Tournoi Printanier en Doublette",
-    "type": "doublette",
-    "date": "2026-04-19",
-    "heureDebut": "09:00",
+    "titre": "8 triples Loisirs",
+    "type": "concours",
+    "date": "2025-10-15",
+    "heureDebut": "10:00",
     "lieu": {
-      "nom": "Boulodrome du Parc",
-      "adresse": "3 allée du Parc",
-      "ville": "Caluire-et-Cuire",
-      "codePostal": "69300"
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
     },
     "contact": {
-      "nom": "Patrick Blanc",
-      "telephone": "06 12 34 56 78"
-    },
-    "description": "Tournoi printanier convivial en doublette. Repas tiré du sac à midi.",
-    "inscription": {
-      "prix": 12
-    },
-    "dotation": "250€ + coupes",
-    "nombreEquipesMax": 20,
-    "organisateur": "Les Boules Caluiroises"
+      "nom": "Robin Girard",
+      "telephone": "06 74 66 84 12"
+    }
   },
   {
     "id": "6",
-    "titre": "Nocturne Triplette de Bron",
-    "type": "triplette",
-    "date": "2026-05-10",
-    "heureDebut": "18:00",
-    "heureFin": "23:00",
+    "titre": "16 triples mixtes TO",
+    "type": "concours",
+    "date": "2025-10-18",
+    "heureDebut": "10:00",
     "lieu": {
-      "nom": "Boulodrome Éclairé de Bron",
-      "adresse": "60 avenue Franklin Roosevelt",
-      "ville": "Bron",
-      "codePostal": "69500"
+      "nom": "BELLERIVE",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
     },
     "contact": {
-      "nom": "Alain Moreau",
-      "telephone": "04 78 26 45 00",
-      "email": "contact@boules-bron.fr"
+      "nom": "Guy Brivet",
+      "telephone": "06 77 04 31 28"
+    }
+  },
+  {
+    "id": "7",
+    "titre": "Championnat départemental des A.S. 2",
+    "type": "ch_dep_as",
+    "date": "2025-10-18",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
     },
-    "description": "Concours nocturne en triplette sous les projecteurs. Ambiance festive, DJ et buvette.",
-    "inscription": {
-      "prix": 18,
-      "dateLimite": "2026-05-05"
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "8",
+    "titre": "Championnat départemental des A.S. 3",
+    "type": "ch_dep_as",
+    "date": "2025-10-25",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
     },
-    "categorie": "Seniors",
-    "dotation": "600€ + surprises",
-    "nombreEquipesMax": 20,
-    "organisateur": "La Boule Brondillante"
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "9",
+    "titre": "Concours National M2 16 Quadrettes",
+    "type": "concours",
+    "date": "2025-11-01",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "CUSSET",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Ch. Dromard",
+      "telephone": "06 08 25 21 67"
+    }
+  },
+  {
+    "id": "10",
+    "titre": "NM3 étape n°3",
+    "type": "ch_regional_nm3",
+    "date": "2025-11-01",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "Ste SIGOLENE",
+      "ville": "Ste SIGOLENE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "11",
+    "titre": "Championnat départemental des A.S. 4",
+    "type": "ch_dep_as",
+    "date": "2025-11-08",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "12",
+    "titre": "Championnat départemental des A.S. repli",
+    "type": "ch_dep_as",
+    "date": "2025-11-11",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "13",
+    "titre": "16 Q vétérans +55 ans Loisirs",
+    "type": "veterans",
+    "date": "2025-11-13",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "BEAUSEJOUR",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "P. Laigneau",
+      "telephone": "07 84 18 71 56"
+    }
+  },
+  {
+    "id": "14",
+    "titre": "Championnat départemental des A.S. 5",
+    "type": "ch_dep_as",
+    "date": "2025-11-15",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "15",
+    "titre": "16 Triples TO Promo Ccrs Michel. Bièvre",
+    "type": "concours",
+    "date": "2025-11-16",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "B. VICHY",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "J.C. Valcourt",
+      "telephone": "06 63 11 78 59"
+    }
+  },
+  {
+    "id": "16",
+    "titre": "M4 étape n°1 Challenge Joël Bajocchi",
+    "type": "ch_dep_m4",
+    "date": "2025-11-22",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "B. VENDATOISE",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "17",
+    "titre": "Championnat départemental des A.S. repli",
+    "type": "ch_dep_as",
+    "date": "2025-11-23",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "18",
+    "titre": "Championnat départemental des A.S. 6",
+    "type": "ch_dep_as",
+    "date": "2025-11-29",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "19",
+    "titre": "paniers de Noël ou championnat des AS",
+    "type": "ch_dep_as",
+    "date": "2025-12-06",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "CUSSET",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "20",
+    "titre": "8 triples 3+4+jeunes Loisirs",
+    "type": "concours",
+    "date": "2025-12-10",
+    "heureDebut": "10:00",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Mathilde Girard",
+      "telephone": "06 79 45 72 52"
+    }
+  },
+  {
+    "id": "21",
+    "titre": "paniers de Noël ou championnat des AS",
+    "type": "ch_dep_as",
+    "date": "2025-12-13",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "CUSSET",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "22",
+    "titre": "NM3 étape n°4",
+    "type": "ch_regional_nm3",
+    "date": "2025-12-13",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "CLERMONT-ROYAT",
+      "ville": "CLERMONT-ROYAT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "23",
+    "titre": "16 Quadrettes 3+4 Promotion",
+    "type": "concours",
+    "date": "2025-12-20",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Robin Girard",
+      "telephone": "06 74 66 84 12"
+    }
+  },
+  {
+    "id": "24",
+    "titre": "Championnat départemental des A.S. 8",
+    "type": "ch_dep_as",
+    "date": "2025-12-20",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "25",
+    "titre": "16 Quadrettes mixtes",
+    "type": "concours",
+    "date": "2025-12-28",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "CUSSET",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "V. Dromard",
+      "telephone": "06 46 53 17 85"
+    }
+  },
+  {
+    "id": "26",
+    "titre": "Championnat départemental des A.S. 9",
+    "type": "ch_dep_as",
+    "date": "2026-01-03",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "27",
+    "titre": "Championnat départemental des A.S. 10",
+    "type": "ch_dep_as",
+    "date": "2026-01-10",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "28",
+    "titre": "Fém'point",
+    "type": "fem_point",
+    "date": "2026-01-18",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "DOMERAT",
+      "ville": "DOMERAT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "29",
+    "titre": "16 Quadrettes 3+4 Promotion Chall. Saksida",
+    "type": "concours",
+    "date": "2026-01-17",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "BELLERIVE",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Guy Brivet",
+      "telephone": "06 77 04 31 28"
+    }
+  },
+  {
+    "id": "30",
+    "titre": "Championnat départemental des A.S. 11",
+    "type": "ch_dep_as",
+    "date": "2026-01-18",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "31",
+    "titre": "Quadrette NM3 étape 5 par GERZAT",
+    "type": "ch_regional_nm3",
+    "date": "2026-01-24",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "CLERMONT",
+      "ville": "CLERMONT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "32",
+    "titre": "16 Q. 3+4 Promo syst. Aurard",
+    "type": "concours",
+    "date": "2026-01-31",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "St YORRE",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Ludo Gasc",
+      "telephone": "06 58 58 15 43"
+    }
+  },
+  {
+    "id": "33",
+    "titre": "16 Q 3+4+IN Promotion",
+    "type": "concours",
+    "date": "2026-02-01",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "DESERTINES",
+      "ville": "DESERTINES",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Jean Ferragu",
+      "telephone": "04 70 28 11 79"
+    }
+  },
+  {
+    "id": "34",
+    "titre": "16 Quadrettes M4 étape n°2 Chall. A. Barthelat",
+    "type": "ch_dep_m4",
+    "date": "2026-02-07",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "BEAUSEJOUR",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "P. Laigneau",
+      "telephone": "07 84 18 71 56"
+    }
+  },
+  {
+    "id": "35",
+    "titre": "16 Q vétérans +55 ans Loisirs",
+    "type": "veterans",
+    "date": "2026-02-12",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "Boule CUSSETDISE",
+      "ville": "Boule CUSSETDISE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Ch. Dromard",
+      "telephone": "06 08 25 21 67"
+    }
+  },
+  {
+    "id": "36",
+    "titre": "Quadrette NM3 étape 5",
+    "type": "ch_regional_nm3",
+    "date": "2026-02-14",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "LE PUY-COUBON",
+      "ville": "LE PUY-COUBON",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "37",
+    "titre": "8 triples Loisirs",
+    "type": "concours",
+    "date": "2026-02-18",
+    "heureDebut": "10:00",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Mathilde Girard",
+      "telephone": "06 79 45 72 52"
+    }
+  },
+  {
+    "id": "38",
+    "titre": "Championnat départemental des A.S. 12",
+    "type": "ch_dep_as",
+    "date": "2026-02-21",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "39",
+    "titre": "16 Q vétérans +55 ans Loisirs",
+    "type": "veterans",
+    "date": "2026-02-26",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "VENDAT",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "J. Dumont",
+      "telephone": "06 48 44 19 20"
+    }
+  },
+  {
+    "id": "40",
+    "titre": "16 triples TD Chall. Valentin",
+    "type": "concours",
+    "date": "2026-02-28",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "BEAUSEJOUR",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "P. Laigneau",
+      "telephone": "07 84 18 71 56"
+    }
+  },
+  {
+    "id": "41",
+    "titre": "Fém'point",
+    "type": "fem_point",
+    "date": "2026-03-01",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "Cusset",
+      "ville": "Cusset",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "42",
+    "titre": "Championnat départemental des A.S. 13",
+    "type": "ch_dep_as",
+    "date": "2026-03-07",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "43",
+    "titre": "National M2 16 Quadrettes",
+    "type": "concours",
+    "date": "2026-03-07",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "B. VICHY",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "M.C. Bielli",
+      "telephone": "06 74 52 96 30"
+    }
+  },
+  {
+    "id": "44",
+    "titre": "Concours National F2",
+    "type": "concours",
+    "date": "2026-03-08",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "B. VICHY",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "M.C. Bielli",
+      "telephone": "06 74 52 96 30"
+    }
+  },
+  {
+    "id": "45",
+    "titre": "16 Q vétérans +55 ans Loisirs",
+    "type": "veterans",
+    "date": "2026-03-12",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "GLACIERES-VICHY",
+      "ville": "Cusset",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Bernard PIROL",
+      "telephone": "07 72 16 25 32"
+    }
+  },
+  {
+    "id": "46",
+    "titre": "16 Q 3+4+IN Propagande par groupes",
+    "type": "concours",
+    "date": "2026-03-14",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "MAGNET",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Déborah MALLOT",
+      "telephone": "07 82 02 57 02"
+    }
+  },
+  {
+    "id": "47",
+    "titre": "Championnat départemental des A.S. repli",
+    "type": "ch_dep_as",
+    "date": "2026-03-15",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "48",
+    "titre": "8 triples 3+4 Promotion",
+    "type": "concours",
+    "date": "2026-03-18",
+    "heureDebut": "10:00",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "06 79 45 72 52",
+      "telephone": "06 74 66 84 12"
+    }
+  },
+  {
+    "id": "49",
+    "titre": "16 Q vétérans +55 ans Loisirs",
+    "type": "veterans",
+    "date": "2026-03-19",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "BELLERIVE",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Guy Brivet",
+      "telephone": "06 77 04 31 28"
+    }
+  },
+  {
+    "id": "50",
+    "titre": "Championnat départemental des A.S. 14",
+    "type": "ch_dep_as",
+    "date": "2026-03-21",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "51",
+    "titre": "FINALE DU CHAMPIONNAT NM3",
+    "type": "ch_regional_nm3",
+    "date": "2026-03-21",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Mathilde Girard",
+      "telephone": "06 79 45 72 52"
+    }
+  },
+  {
+    "id": "52",
+    "titre": "16 triples 3+4 Promotion",
+    "type": "concours",
+    "date": "2026-03-22",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "GLACIERES-VICHY",
+      "ville": "Cusset",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Bernard PIROL",
+      "telephone": "07 72 16 25 32"
+    }
+  },
+  {
+    "id": "53",
+    "titre": "16 Quadrettes M4 étape n°3 Chall. Brenner",
+    "type": "ch_dep_m4",
+    "date": "2026-03-28",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "NEUILLY-LE-REAL",
+      "ville": "NEUILLY-LE-REAL",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Rhonan Le Fur",
+      "telephone": "06 83 89 95 60"
+    }
+  },
+  {
+    "id": "54",
+    "titre": "Fém'point",
+    "type": "fem_point",
+    "date": "2026-03-29",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "55",
+    "titre": "16 Quadrettes M4 étape n°4",
+    "type": "ch_dep_m4",
+    "date": "2026-04-04",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "COMMENTRY",
+      "ville": "COMMENTRY",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "P. Monneyron",
+      "telephone": "06 58 69 32 15"
+    }
+  },
+  {
+    "id": "56",
+    "titre": "16 Quadrettes 3+4 Promotion",
+    "type": "concours",
+    "date": "2026-04-06",
+    "heureDebut": "09:00",
+    "lieu": {
+      "nom": "MEAULNE",
+      "ville": "MEAULNE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "04.70.06.95.81",
+      "telephone": "06.17.42.30.16"
+    }
+  },
+  {
+    "id": "57",
+    "titre": "8 triples 3+4+jeunes Loisirs",
+    "type": "concours",
+    "date": "2026-04-15",
+    "heureDebut": "10:00",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Robin Girard",
+      "telephone": "06 74 66 84 12"
+    }
+  },
+  {
+    "id": "58",
+    "titre": "Championnat départemental simple",
+    "type": "ch_dep",
+    "date": "2026-04-18",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "B. VICHY",
+      "ville": "BELLERIVE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "59",
+    "titre": "Championnat départemental simple",
+    "type": "ch_dep",
+    "date": "2026-04-19",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "B. VICHY",
+      "ville": "BELLERIVE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "60",
+    "titre": "Concours national F2",
+    "type": "concours",
+    "date": "2026-04-19",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Mathilde Girard",
+      "telephone": "06 79 45 72 52"
+    }
+  },
+  {
+    "id": "61",
+    "titre": "Eliminatoires Championnat départemental double",
+    "type": "ch_dep",
+    "date": "2026-04-25",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "MAGNET",
+      "ville": "MAGNET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "62",
+    "titre": "Eliminatoires Championnat départemental double",
+    "type": "ch_dep",
+    "date": "2026-04-26",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "MAGNET",
+      "ville": "MAGNET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "63",
+    "titre": "Championnat Régional des A.S. Féminines",
+    "type": "ch_regional_as",
+    "date": "2026-04-26",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "BELLERIVE",
+      "ville": "CUSSET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "64",
+    "titre": "24 doubles 3+4+1 Nat Promotion.",
+    "type": "concours",
+    "date": "2026-05-01",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "MOULINS",
+      "ville": "MOULINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Mathilde Girard",
+      "telephone": "06 79 45 72 52"
+    }
+  },
+  {
+    "id": "65",
+    "titre": "Ch. départemental double suite ou repli",
+    "type": "ch_dep",
+    "date": "2026-05-02",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "MAGNET",
+      "ville": "MAGNET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "66",
+    "titre": "Ch. départemental double suite ou repli",
+    "type": "ch_dep",
+    "date": "2026-05-03",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "MAGNET",
+      "ville": "MAGNET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "67",
+    "titre": "1/4 de finales AS et Coupe",
+    "type": "ch_dep_as",
+    "date": "2026-05-08",
+    "heureDebut": "14:30",
+    "lieu": {
+      "nom": "DOMERAT",
+      "ville": "DOMERAT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "68",
+    "titre": "Championnat départemental double mixte",
+    "type": "ch_dep",
+    "date": "2026-05-10",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "COMMENTRY",
+      "ville": "COMMENTRY",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "69",
+    "titre": "32 doubles 3+4 Promotion",
+    "type": "concours",
+    "date": "2026-05-14",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "CHATELDON",
+      "ville": "CHATELDON",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "70",
+    "titre": "1/4 de finales AS et Coupe = REPLI",
+    "type": "ch_dep_as",
+    "date": "2026-05-16",
+    "heureDebut": "13:30",
+    "lieu": {
+      "nom": "DOMERAT",
+      "ville": "DOMERAT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "71",
+    "titre": "Championnat régional double",
+    "type": "ch_regional",
+    "date": "2026-05-17",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "ARPAJON SUR CERE (15)",
+      "ville": "ARPAJON SUR CERE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "72",
+    "titre": "Ch. départemental Quadrettes vétérans",
+    "type": "ch_dep",
+    "date": "2026-05-21",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "VENDAT",
+      "ville": "BELLERIVE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "73",
+    "titre": "16 triples 3+4+1 Nat. Promotion",
+    "type": "concours",
+    "date": "2026-05-23",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "BROUT-VERNET",
+      "ville": "BROUT-VERNET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "J-Pierre Carton",
+      "telephone": "06 80 58 45 43"
+    }
+  },
+  {
+    "id": "74",
+    "titre": "16 Q 3+4+1 Nat. Promotion",
+    "type": "concours",
+    "date": "2026-05-30",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "St YORRE",
+      "ville": "St YORRE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Charlie Bertrand",
+      "telephone": "06 87 23 43 92"
+    }
+  },
+  {
+    "id": "75",
+    "titre": "1/2 + finales des AS + Coupe",
+    "type": "ch_dep_as",
+    "date": "2026-05-31",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "MAGNET /repli Cusset",
+      "ville": "MAGNET /repli Cusset",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "76",
+    "titre": "Championnat régional Quadrette vétérans",
+    "type": "ch_regional",
+    "date": "2026-06-04",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "ISSOIRE - 63",
+      "ville": "ISSOIRE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "77",
+    "titre": "32 doubles 3+4 promotion semi-nocturne",
+    "type": "concours",
+    "date": "2026-06-05",
+    "heureDebut": "18:00",
+    "lieu": {
+      "nom": "MAGNET",
+      "ville": "MAGNET",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Déborah MALLOT",
+      "telephone": "07 82 02 57 02"
+    }
+  },
+  {
+    "id": "78",
+    "titre": "Championnat régional double mixte",
+    "type": "ch_regional",
+    "date": "2026-06-07",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "RIOM ès MONTAGNE - 15",
+      "ville": "RIOM ès MONTAGNE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "79",
+    "titre": "16 Q 3+4+1 Nat. Loisirs",
+    "type": "concours",
+    "date": "2026-06-07",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "NERIS les BAINS",
+      "ville": "NERIS les BAINS",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "F. RABETTE",
+      "telephone": "06 72 44 62 74"
+    }
+  },
+  {
+    "id": "80",
+    "titre": "Championnat régional simple",
+    "type": "ch_regional",
+    "date": "2026-06-14",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "B. VICHY",
+      "ville": "BELLERIVE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "81",
+    "titre": "Eliminatoires Ch. Départemental Quadrette M4/M3",
+    "type": "ch_dep_m4",
+    "date": "2026-06-20",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "BOURBON L'ARCHAMBAULT",
+      "ville": "BOURBON L'ARCHAMBAULT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "82",
+    "titre": "Ch. départemental Quadrette M4/M3",
+    "type": "ch_dep_m4",
+    "date": "2026-06-21",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "BOURBON L'ARCHAMBAULT",
+      "ville": "BOURBON L'ARCHAMBAULT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "83",
+    "titre": "Ch. régional triple féminin",
+    "type": "ch_regional",
+    "date": "2026-06-21",
+    "heureDebut": "08:30",
+    "lieu": {
+      "nom": "Ste SIGOLENE - 43",
+      "ville": "Ste SIGOLENE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "84",
+    "titre": "16 doubles 3+4 promotion",
+    "type": "concours",
+    "date": "2026-06-27",
+    "heureDebut": "14:00",
+    "lieu": {
+      "nom": "GLACIERES",
+      "ville": "GLACIERES",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Bernard PIROL",
+      "telephone": "07 72 16 25 32"
+    }
+  },
+  {
+    "id": "85",
+    "titre": "Championnat régional des A.S.",
+    "type": "ch_regional_as",
+    "date": "2026-06-27",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "DOMERAT - 03",
+      "ville": "DOMERAT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Secrétariat CBDA",
+      "email": "cbda2@wanadoo.fr"
+    }
+  },
+  {
+    "id": "86",
+    "titre": "16 doubles 3+4 promotion",
+    "type": "concours",
+    "date": "2026-06-28",
+    "heureDebut": "14:00",
+    "lieu": {
+      "nom": "YZEURE",
+      "ville": "YZEURE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Daniel MAZILLE",
+      "telephone": "06 19 03 27 01"
+    }
+  },
+  {
+    "id": "87",
+    "titre": "32 Doubles TD Promotion",
+    "type": "concours",
+    "date": "2026-07-04",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "COMMENTRY",
+      "ville": "COMMENTRY",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "P. Monneyron",
+      "telephone": "06 58 69 32 15"
+    }
+  },
+  {
+    "id": "88",
+    "titre": "Championnat de France Double",
+    "type": "ch_france",
+    "date": "2026-07-04",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "PINEUILH (33)",
+      "ville": "PINEUILH",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "89",
+    "titre": "16 quadrettes Loisirs système Aurard en 3 parties",
+    "type": "concours",
+    "date": "2026-07-11",
+    "heureDebut": "09:30",
+    "lieu": {
+      "nom": "MALICORNE",
+      "ville": "MALICORNE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "J-Michel VAUKAIRE",
+      "telephone": "06 19 69 81 96"
+    }
+  },
+  {
+    "id": "90",
+    "titre": "AS inter régionales lère phase",
+    "type": "ch_dep_as",
+    "date": "2026-07-11",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "91",
+    "titre": "CHAMPIONNAT AURA Fém'point",
+    "type": "ch_regional",
+    "date": "2026-07-12",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "92",
+    "titre": "16 Doubles 3+4 Promo éliminatoires",
+    "type": "concours",
+    "date": "2026-07-18",
+    "heureDebut": "14:00",
+    "lieu": {
+      "nom": "St YORRE",
+      "ville": "St YORRE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Charlie Bertrand",
+      "telephone": "06 87 23 43 92"
+    }
+  },
+  {
+    "id": "93",
+    "titre": "Championnat de France Quadrette + Triple féminin + Open triple jeunes",
+    "type": "ch_france",
+    "date": "2026-07-17",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "CHALAMONT",
+      "ville": "CHALAMONT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "94",
+    "titre": "32 doubles 3+4+IN Promotion",
+    "type": "concours",
+    "date": "2026-07-24",
+    "heureDebut": "18:00",
+    "lieu": {
+      "nom": "DOMERAT",
+      "ville": "DOMERAT",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "F. Muglia",
+      "telephone": "06 82 88 87 42"
+    }
+  },
+  {
+    "id": "95",
+    "titre": "Les 12h de NEUILLY- Loisirs- Challenge Rambert",
+    "type": "concours",
+    "date": "2026-07-25",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "NEUILLY LE REAL",
+      "ville": "NEUILLY LE REAL",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "Rhonan Le Fur",
+      "telephone": "06 83 89 95 60"
+    }
+  },
+  {
+    "id": "96",
+    "titre": "AS inter régionales 2ème phase",
+    "type": "ch_dep_as",
+    "date": "2026-07-25",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "97",
+    "titre": "Championnat de France Simple",
+    "type": "ch_france",
+    "date": "2026-08-29",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "",
+      "ville": "",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "98",
+    "titre": "GP Vichy 32 Db 3+4 promotion par poules/2j",
+    "type": "concours",
+    "date": "2026-08-29",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "B. VICHYSSOISE",
+      "ville": "BELLERIVE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "J.C Valcourt",
+      "telephone": "06 63 11 78 59"
+    }
+  },
+  {
+    "id": "99",
+    "titre": "GP Vichy 32 Db Td Promotion",
+    "type": "concours",
+    "date": "2026-08-30",
+    "heureDebut": "08:00",
+    "lieu": {
+      "nom": "B. VICHYSSOISE",
+      "ville": "BELLERIVE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "J.C Valcourt",
+      "telephone": "0663117859"
+    }
+  },
+  {
+    "id": "100",
+    "titre": "Ch. de France Double Mixte",
+    "type": "ch_france",
+    "date": "2026-09-05",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "ROANNE - 42",
+      "ville": "ROANNE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "101",
+    "titre": "Ch. de France Quadrette vétérans",
+    "type": "ch_france",
+    "date": "2026-09-11",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "BRIVE LA GAILLARDE",
+      "ville": "BRIVE LA GAILLARDE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
+  },
+  {
+    "id": "102",
+    "titre": "Finale COF A.S.",
+    "type": "ch_dep_as",
+    "date": "2026-09-13",
+    "heureDebut": "",
+    "lieu": {
+      "nom": "BRIVE LA GAILLARDE",
+      "ville": "BRIVE LA GAILLARDE",
+      "adresse": "",
+      "codePostal": ""
+    },
+    "contact": {
+      "nom": "CBDA"
+    }
   }
 ]

@@ -4,12 +4,12 @@ import FilterBar from './FilterBar';
 import styles from './ConcoursList.module.css';
 
 export default function ConcoursList() {
-  const { concours, filters, setFilters, villes } = useConcours();
+  const { concours, filters, setFilters } = useConcours();
 
   return (
     <div>
       <h2 className={styles.heading}>Prochains concours</h2>
-      <FilterBar filters={filters} villes={villes} onFilterChange={setFilters} />
+      <FilterBar filters={filters} onFilterChange={setFilters} />
       {concours.length === 0 ? (
         <p className={styles.empty}>Aucun concours trouvé avec ces filtres.</p>
       ) : (

@@ -5,11 +5,10 @@ import styles from './FilterBar.module.css';
 
 interface Props {
   filters: Filters;
-  villes: string[];
   onFilterChange: (filters: Filters) => void;
 }
 
-export default function FilterBar({ filters, villes, onFilterChange }: Props) {
+export default function FilterBar({ filters, onFilterChange }: Props) {
   return (
     <div className={styles.bar}>
       <select
@@ -30,22 +29,7 @@ export default function FilterBar({ filters, villes, onFilterChange }: Props) {
         ))}
       </select>
 
-      <select
-        className={styles.select}
-        value={filters.ville ?? ''}
-        onChange={(e) =>
-          onFilterChange({ ...filters, ville: e.target.value || undefined })
-        }
-      >
-        <option value="">Toutes les villes</option>
-        {villes.map((v) => (
-          <option key={v} value={v}>
-            {v}
-          </option>
-        ))}
-      </select>
-
-      {(filters.type || filters.ville) && (
+      {filters.type && (
         <button
           className={styles.reset}
           onClick={() => onFilterChange({})}

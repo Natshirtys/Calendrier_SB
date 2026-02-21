@@ -1,18 +1,26 @@
 export type TypeConcours =
-  | 'doublette'
-  | 'triplette'
-  | 'quadrette'
-  | 'tir_precision'
-  | 'individuel'
-  | 'autre';
+  | 'concours'
+  | 'ch_regional_nm3'
+  | 'ch_dep_as'
+  | 'ch_dep_m4'
+  | 'ch_dep'
+  | 'ch_regional'
+  | 'ch_regional_as'
+  | 'ch_france'
+  | 'fem_point'
+  | 'veterans';
 
 export const TYPE_CONCOURS_LABELS: Record<TypeConcours, string> = {
-  doublette: 'Doublette',
-  triplette: 'Triplette',
-  quadrette: 'Quadrette',
-  tir_precision: 'Tir de précision',
-  individuel: 'Individuel',
-  autre: 'Autre',
+  concours: 'Concours',
+  ch_regional_nm3: 'Ch. régional NM3',
+  ch_dep_as: 'Chpt. dép. des A.S.',
+  ch_dep_m4: 'Ch. départemental M4',
+  ch_dep: 'Ch. départemental',
+  ch_regional: 'Ch. régional',
+  ch_regional_as: 'Ch. régional des A.S.',
+  ch_france: 'Championnat de France',
+  fem_point: "Fém'point",
+  veterans: 'Vétérans',
 };
 
 export interface Lieu {

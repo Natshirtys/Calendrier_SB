@@ -3,8 +3,38 @@ import { useParams, Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { useConcours } from '../hooks/useConcours';
+import type { Concours } from '../types/concours';
 import { TYPE_CONCOURS_LABELS } from '../types/concours';
 import styles from './ConcoursDetail.module.css';
+
+function buildGoogleCalendarUrl(c: Concours): string {
+  const d = c.date.replace(/-/g, '');
+  let dates: string;
+  if (c.heureDebut) {
+    const start = `${d}T${c.heureDebut.replace(':', '')}00`;
+    if (c.heureFin) {
+      dates = `${start}/${d}T${c.heureFin.replace(':', '')}00`;
+    } else {
+      const [h, m] = c.heureDebut.split(':').map(Number);
+      const endH = String(Math.min(h + 4, 23)).padStart(2, '0');
+      const endM = String(m).padStart(2, '0');
+      dates = `${start}/${d}T${endH}${endM}00`;
+    }
+  } else {
+    const next = new Date(c.date + 'T00:00:00');
+    next.setDate(next.getDate() + 1);
+    dates = `${d}/${next.toISOString().slice(0, 10).replace(/-/g, '')}`;
+  }
+  const location = [c.lieu.nom, c.lieu.ville].filter(Boolean).join(', ');
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: c.titre,
+    dates,
+    location,
+    details: c.description ?? '',
+  });
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
 
 export default function ConcoursDetail() {
   const { id } = useParams<{ id: string }>();
@@ -86,6 +116,23 @@ export default function ConcoursDetail() {
               Début : {concours.heureDebut}
               {concours.heureFin && ` — Fin : ${concours.heureFin}`}
             </p>
+            <a
+              href={buildGoogleCalendarUrl(concours)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.gcalBtn}
+              title="Ajouter à Google Calendar"
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="#4285F4" d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
+                <path fill="#34A853" d="M7 11h2v2H7z"/>
+                <path fill="#FBBC04" d="M11 11h2v2h-2z"/>
+                <path fill="#EA4335" d="M15 11h2v2h-2z"/>
+                <path fill="#34A853" d="M7 15h2v2H7z"/>
+                <path fill="#4285F4" d="M11 15h2v2h-2z"/>
+              </svg>
+              Ajouter à Google Calendar
+            </a>
           </section>
 
           <section className={styles.section}>
