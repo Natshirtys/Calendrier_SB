@@ -16,3 +16,11 @@
   padding: 2rem;
   font-style: italic;
 }
+
+.error {
+  text-align: center;
+  color: #a93226;
+  background: #fdecea;
+  border-radius: var(--radius);
+  padding: 1rem;
+}

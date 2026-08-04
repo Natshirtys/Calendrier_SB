@@ -38,7 +38,7 @@ function buildGoogleCalendarUrl(c: Concours): string {
 
 export default function ConcoursDetail() {
   const { id } = useParams<{ id: string }>();
-  const { getById } = useConcours();
+  const { getById, loading, error } = useConcours();
   const concours = getById(id!);
   const [lightbox, setLightbox] = useState(false);
 
@@ -53,10 +53,15 @@ export default function ConcoursDetail() {
     return () => document.removeEventListener('keydown', onKey);
   }, [lightbox, closeLightbox]);
 
+  if (loading) {
+    return <div className={styles.notFound}>Chargement du concours…</div>;
+  }
+
   if (!concours) {
     return (
       <div className={styles.notFound}>
-        <h2>Concours introuvable</h2>
+        <h2>{error ? 'Calendrier indisponible' : 'Concours introuvable'}</h2>
+        {error && <p>{error}</p>}
         <Link to="/">Retour à la liste</Link>
       </div>
     );

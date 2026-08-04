@@ -3,6 +3,15 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api/concours': {
+        target: 'https://docs.google.com',
+        changeOrigin: true,
+        rewrite: () => '/spreadsheets/d/1e7Nszu_QLC3a8JepEEjQafPYTwcpxMah/gviz/tq?tqx=out:csv&gid=0',
+      },
+    },
+  },
   plugins: [
     react(),
     VitePWA({

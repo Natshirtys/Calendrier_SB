@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react';
-import concoursData from '../data/concours.json';
+import { createContext, createElement, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { fetchConcoursFromGoogleSheet } from '../services/googleSheet';
 import type { Concours, TypeConcours } from '../types/concours';
 
 export interface Filters {
@@ -8,12 +8,37 @@ export interface Filters {
   annee?: number;
 }
 
+interface ConcoursSource {
+  allConcours: Concours[];
+  loading: boolean;
+  error: string | null;
+}
+
+const ConcoursContext = createContext<ConcoursSource | null>(null);
+
+export function ConcoursProvider({ children }: { children: ReactNode }) {
+  const [source, setSource] = useState<ConcoursSource>({ allConcours: [], loading: true, error: null });
+
+  useEffect(() => {
+    fetchConcoursFromGoogleSheet()
+      .then((allConcours) => setSource({ allConcours, loading: false, error: null }))
+      .catch((reason: unknown) => {
+        const error = reason instanceof Error ? reason.message : 'Impossible de charger le calendrier.';
+        setSource({ allConcours: [], loading: false, error });
+      });
+  }, []);
+
+  return createElement(ConcoursContext.Provider, { value: source }, children);
+}
+
 export function useConcours() {
   const [filters, setFilters] = useState<Filters>({});
-  const concours = concoursData as Concours[];
+  const source = useContext(ConcoursContext);
+  if (!source) throw new Error('useConcours doit être utilisé dans ConcoursProvider.');
+  const { allConcours, loading, error } = source;
 
   const filtered = useMemo(() => {
-    return concours
+    return allConcours
       .filter((c) => {
         if (filters.type && c.type !== filters.type) return false;
         if (filters.mois !== undefined && filters.annee !== undefined) {
@@ -24,11 +49,11 @@ export function useConcours() {
         return true;
       })
       .sort((a, b) => a.date.localeCompare(b.date));
-  }, [concours, filters]);
+  }, [allConcours, filters]);
 
-  const getById = (id: string) => concours.find((c) => c.id === id);
+  const getById = (id: string) => allConcours.find((c) => c.id === id);
 
-  const getByDate = (date: string) => concours.filter((c) => c.date === date);
+  const getByDate = (date: string) => allConcours.filter((c) => c.date === date);
 
-  return { concours: filtered, allConcours: concours, filters, setFilters, getById, getByDate };
+  return { concours: filtered, allConcours, filters, setFilters, getById, getByDate, loading, error };
 }
