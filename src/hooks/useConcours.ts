@@ -4,6 +4,7 @@ import type { Concours, TypeConcours } from '../types/concours';
 
 export interface Filters {
   type?: TypeConcours;
+  categories?: string[];
   mois?: number; // 0-11
   annee?: number;
 }
@@ -41,6 +42,9 @@ export function useConcours() {
     return allConcours
       .filter((c) => {
         if (filters.type && c.type !== filters.type) return false;
+        if (filters.categories?.length && (!c.categorie || !filters.categories.includes(c.categorie))) {
+          return false;
+        }
         if (filters.mois !== undefined && filters.annee !== undefined) {
           const d = new Date(c.date);
           if (d.getMonth() !== filters.mois || d.getFullYear() !== filters.annee)
@@ -54,6 +58,10 @@ export function useConcours() {
   const getById = (id: string) => allConcours.find((c) => c.id === id);
 
   const getByDate = (date: string) => allConcours.filter((c) => c.date === date);
+  const categories = useMemo(
+    () => [...new Set(allConcours.flatMap((c) => (c.categorie ? [c.categorie] : [])))].sort((a, b) => a.localeCompare(b, 'fr')),
+    [allConcours],
+  );
 
-  return { concours: filtered, allConcours, filters, setFilters, getById, getByDate, loading, error };
+  return { concours: filtered, allConcours, categories, filters, setFilters, getById, getByDate, loading, error };
 }

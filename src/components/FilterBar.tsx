@@ -4,11 +4,20 @@ import type { Filters } from '../hooks/useConcours';
 import styles from './FilterBar.module.css';
 
 interface Props {
+  categories: string[];
   filters: Filters;
   onFilterChange: (filters: Filters) => void;
 }
 
-export default function FilterBar({ filters, onFilterChange }: Props) {
+export default function FilterBar({ categories, filters, onFilterChange }: Props) {
+  const toggleCategory = (category: string) => {
+    const selected = filters.categories ?? [];
+    const nextCategories = selected.includes(category)
+      ? selected.filter((value) => value !== category)
+      : [...selected, category];
+    onFilterChange({ ...filters, categories: nextCategories.length ? nextCategories : undefined });
+  };
+
   return (
     <div className={styles.bar}>
       <select
@@ -29,11 +38,30 @@ export default function FilterBar({ filters, onFilterChange }: Props) {
         ))}
       </select>
 
-      {filters.type && (
-        <button
-          className={styles.reset}
-          onClick={() => onFilterChange({})}
-        >
+      {categories.length > 0 && (
+        <fieldset className={styles.categories}>
+          <legend className={styles.categoryLabel}>Catégories</legend>
+          <div className={styles.categoryChoices}>
+            {categories.map((category) => {
+              const selected = filters.categories?.includes(category) ?? false;
+              return (
+                <button
+                  key={category}
+                  type="button"
+                  className={`${styles.category} ${selected ? styles.categorySelected : ''}`}
+                  onClick={() => toggleCategory(category)}
+                  aria-pressed={selected}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
+      )}
+
+      {(filters.type || filters.categories?.length) && (
+        <button className={styles.reset} onClick={() => onFilterChange({})}>
           Effacer les filtres
         </button>
       )}

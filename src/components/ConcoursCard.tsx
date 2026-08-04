@@ -12,6 +12,12 @@ interface Props {
 export default function ConcoursCard({ concours }: Props) {
   const dateObj = new Date(concours.date + 'T00:00:00');
   const dateFormatted = format(dateObj, 'EEEE d MMMM yyyy', { locale: fr });
+  const lieu = [concours.lieu.nom, concours.lieu.ville]
+    .filter(
+      (value, index, values) =>
+        value && values.findIndex((other) => other.toLocaleLowerCase('fr') === value.toLocaleLowerCase('fr')) === index,
+    )
+    .join(' — ');
 
   return (
     <Link to={`/concours/${concours.id}`} className={styles.card}>
@@ -25,15 +31,11 @@ export default function ConcoursCard({ concours }: Props) {
           <span className={styles.badge}>{TYPE_CONCOURS_LABELS[concours.type]}</span>
           {concours.categorie && <span className={styles.categorie}>{concours.categorie}</span>}
         </div>
-        <p className={styles.info}>
-          {concours.lieu.nom} — {concours.lieu.ville}
-        </p>
+        <p className={styles.info}>{lieu}</p>
         <p className={styles.info}>
           {dateFormatted} · {concours.heureDebut}
         </p>
-        {concours.dotation && (
-          <p className={styles.dotation}>{concours.dotation}</p>
-        )}
+        {concours.dotation && <p className={styles.dotation}>{concours.dotation}</p>}
       </div>
     </Link>
   );
