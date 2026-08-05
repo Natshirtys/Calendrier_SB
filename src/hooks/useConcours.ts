@@ -1,12 +1,17 @@
 import { createContext, createElement, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { fetchConcoursFromGoogleSheet } from '../services/googleSheet';
-import type { Concours, TypeConcours } from '../types/concours';
+import type { Concours } from '../types/concours';
 
 export interface Filters {
-  type?: TypeConcours;
+  typeCompetition?: string;
   categories?: string[];
   mois?: number; // 0-11
   annee?: number;
+}
+
+export interface CompetitionTypeOption {
+  label: string;
+  color?: string;
 }
 
 interface ConcoursSource {
@@ -41,7 +46,7 @@ export function useConcours() {
   const filtered = useMemo(() => {
     return allConcours
       .filter((c) => {
-        if (filters.type && c.type !== filters.type) return false;
+        if (filters.typeCompetition && c.typeCompetition !== filters.typeCompetition) return false;
         if (filters.categories?.length && (!c.categorie || !filters.categories.includes(c.categorie))) {
           return false;
         }
@@ -62,6 +67,15 @@ export function useConcours() {
     () => [...new Set(allConcours.flatMap((c) => (c.categorie ? [c.categorie] : [])))].sort((a, b) => a.localeCompare(b, 'fr')),
     [allConcours],
   );
+  const competitionTypes = useMemo(() => {
+    const types = new Map<string, string | undefined>();
+    allConcours.forEach((c) => {
+      if (c.typeCompetition && !types.has(c.typeCompetition)) types.set(c.typeCompetition, c.couleur);
+    });
+    return [...types.entries()]
+      .map(([label, color]) => ({ label, color }))
+      .sort((a, b) => a.label.localeCompare(b.label, 'fr'));
+  }, [allConcours]);
 
-  return { concours: filtered, allConcours, categories, filters, setFilters, getById, getByDate, loading, error };
+  return { concours: filtered, allConcours, categories, competitionTypes, filters, setFilters, getById, getByDate, loading, error };
 }

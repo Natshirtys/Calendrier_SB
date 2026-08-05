@@ -173,6 +173,7 @@ export async function fetchConcoursFromGoogleSheet(): Promise<Concours[]> {
       id: hash(`${date.date}|${titre}|${lieu}|${index}`),
       titre,
       type: mapType(type),
+      typeCompetition: type || undefined,
       couleur: colors.get(normaliseType(type)),
       date: date.date,
       heureDebut: parseTime(getValue(row, 'HEURE')),

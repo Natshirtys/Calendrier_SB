@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   startOfMonth,
@@ -15,10 +15,12 @@ import {
 } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { useConcours } from '../hooks/useConcours';
+import type { Concours } from '../types/concours';
 import styles from './Calendar.module.css';
 
 export default function Calendar() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const { allConcours } = useConcours();
   const navigate = useNavigate();
 
@@ -36,6 +38,15 @@ export default function Calendar() {
 
   const concoursParJour = (date: Date) =>
     allConcours.filter((c) => isSameDay(new Date(c.date + 'T00:00:00'), date));
+  const selectedEvents: Concours[] = selectedDate ? concoursParJour(selectedDate) : [];
+
+  useEffect(() => {
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setSelectedDate(null);
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, []);
 
   return (
     <div>
@@ -71,7 +82,7 @@ export default function Calendar() {
                 if (events.length === 1) {
                   navigate(`/concours/${events[0].id}`);
                 } else if (events.length > 1) {
-                  navigate(`/concours/${events[0].id}`);
+                  setSelectedDate(d);
                 }
               }}
             >
@@ -92,6 +103,50 @@ export default function Calendar() {
           );
         })}
       </div>
+
+      {selectedDate && selectedEvents.length > 1 && (
+        <div className={styles.modalOverlay} onClick={() => setSelectedDate(null)}>
+          <section
+            className={styles.modal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="events-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className={styles.modalHeader}>
+              <h3 id="events-title">
+                {selectedEvents.length} compétitions le {format(selectedDate, 'd MMMM yyyy', { locale: fr })}
+              </h3>
+              <button
+                type="button"
+                className={styles.closeBtn}
+                aria-label="Fermer"
+                onClick={() => setSelectedDate(null)}
+              >
+                ×
+              </button>
+            </div>
+            <div className={styles.eventList}>
+              {selectedEvents.map((event) => (
+                <button
+                  key={event.id}
+                  type="button"
+                  className={styles.eventChoice}
+                  onClick={() => {
+                    setSelectedDate(null);
+                    navigate(`/concours/${event.id}`);
+                  }}
+                >
+                  <span className={styles.eventChoiceTitle}>{event.titre}</span>
+                  <span className={styles.eventChoiceMeta}>
+                    {[event.heureDebut, event.lieu.nom, event.categorie].filter(Boolean).join(' · ')}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 }

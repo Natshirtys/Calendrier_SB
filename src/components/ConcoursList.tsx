@@ -4,12 +4,17 @@ import FilterBar from './FilterBar';
 import styles from './ConcoursList.module.css';
 
 export default function ConcoursList() {
-  const { concours, categories, filters, setFilters, loading, error } = useConcours();
+  const { concours, categories, competitionTypes, filters, setFilters, loading, error } = useConcours();
 
   return (
     <div>
       <h2 className={styles.heading}>Prochains concours</h2>
-      <FilterBar categories={categories} filters={filters} onFilterChange={setFilters} />
+      <FilterBar
+        categories={categories}
+        competitionTypes={competitionTypes}
+        filters={filters}
+        onFilterChange={setFilters}
+      />
       {loading ? (
         <p className={styles.empty}>Chargement du calendrier…</p>
       ) : error ? (
