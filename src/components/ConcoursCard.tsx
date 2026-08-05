@@ -28,7 +28,9 @@ export default function ConcoursCard({ concours }: Props) {
       <div className={styles.content}>
         <h3 className={styles.title}>{concours.titre}</h3>
         <div className={styles.meta}>
-          <span className={styles.badge}>{TYPE_CONCOURS_LABELS[concours.type]}</span>
+          <span className={styles.badge} style={concours.couleur ? { backgroundColor: concours.couleur } : undefined}>
+            {TYPE_CONCOURS_LABELS[concours.type]}
+          </span>
           {concours.categorie && <span className={styles.categorie}>{concours.categorie}</span>}
         </div>
         <p className={styles.info}>{lieu}</p>

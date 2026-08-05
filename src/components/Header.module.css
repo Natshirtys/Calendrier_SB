@@ -19,6 +19,14 @@
   gap: 0.5rem;
 }
 
+.logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex: 0 0 auto;
+}
+
 .title {
   font-size: 1.1rem;
   font-weight: 700;

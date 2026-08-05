@@ -79,7 +79,12 @@ export default function Calendar() {
               {events.length > 0 && (
                 <div className={styles.events}>
                   {events.map((e) => (
-                    <div key={e.id} className={styles.eventDot} title={e.titre} />
+                    <div
+                      key={e.id}
+                      className={styles.eventDot}
+                      title={e.titre}
+                      style={e.couleur ? { backgroundColor: e.couleur } : undefined}
+                    />
                   ))}
                 </div>
               )}

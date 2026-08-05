@@ -78,7 +78,9 @@ export default function ConcoursDetail() {
       <h2 className={styles.title}>{concours.titre}</h2>
 
       <div className={styles.badges}>
-        <span className={styles.badge}>{TYPE_CONCOURS_LABELS[concours.type]}</span>
+        <span className={styles.badge} style={concours.couleur ? { backgroundColor: concours.couleur } : undefined}>
+          {TYPE_CONCOURS_LABELS[concours.type]}
+        </span>
         {concours.categorie && <span className={styles.badgeSecondary}>{concours.categorie}</span>}
       </div>
 

@@ -10,6 +10,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: () => '/spreadsheets/d/1e7Nszu_QLC3a8JepEEjQafPYTwcpxMah/gviz/tq?tqx=out:csv&gid=0',
       },
+      '/api/couleurs': {
+        target: 'https://docs.google.com',
+        changeOrigin: true,
+        rewrite: () => '/spreadsheets/d/1e7Nszu_QLC3a8JepEEjQafPYTwcpxMah/gviz/tq?tqx=out:csv&sheet=Couleurs',
+      },
     },
   },
   plugins: [

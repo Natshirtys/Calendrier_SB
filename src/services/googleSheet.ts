@@ -125,8 +125,31 @@ function hash(value: string): string {
   return (result >>> 0).toString(36);
 }
 
+function normaliseType(value: string): string {
+  return normalise(value).replace(/\s+/g, ' ');
+}
+
+async function fetchColors(): Promise<Map<string, string>> {
+  try {
+    const response = await fetch('/api/couleurs', { cache: 'no-store' });
+    if (!response.ok) return new Map();
+    const colors = new Map<string, string>();
+    parseCsv(await response.text()).forEach((row) => {
+      const type = getValue(row, 'Type de concours');
+      const color = getValue(row, 'code couleur');
+      if (type && /^#[0-9a-f]{6}$/i.test(color)) colors.set(normaliseType(type), color);
+    });
+    return colors;
+  } catch {
+    return new Map();
+  }
+}
+
 export async function fetchConcoursFromGoogleSheet(): Promise<Concours[]> {
-  const response = await fetch('/api/concours', { cache: 'no-store' });
+  const [response, colors] = await Promise.all([
+    fetch('/api/concours', { cache: 'no-store' }),
+    fetchColors(),
+  ]);
   if (!response.ok) throw new Error(`La feuille Google n'est pas accessible (${response.status}).`);
 
   const rows = parseCsv(await response.text());
@@ -150,6 +173,7 @@ export async function fetchConcoursFromGoogleSheet(): Promise<Concours[]> {
       id: hash(`${date.date}|${titre}|${lieu}|${index}`),
       titre,
       type: mapType(type),
+      couleur: colors.get(normaliseType(type)),
       date: date.date,
       heureDebut: parseTime(getValue(row, 'HEURE')),
       lieu: { nom: lieu, ville: lieu, adresse: '', codePostal: '' },

@@ -47,6 +47,7 @@ export interface Concours {
   id: string;
   titre: string;
   type: TypeConcours;
+  couleur?: string;
   date: string;
   heureDebut: string;
   heureFin?: string;
