@@ -3,7 +3,7 @@ import { fetchConcoursFromGoogleSheet } from '../services/googleSheet';
 import type { Concours } from '../types/concours';
 
 export interface Filters {
-  typeCompetition?: string;
+  typeCompetitions?: string[];
   categories?: string[];
   mois?: number; // 0-11
   annee?: number;
@@ -46,7 +46,12 @@ export function useConcours() {
   const filtered = useMemo(() => {
     return allConcours
       .filter((c) => {
-        if (filters.typeCompetition && c.typeCompetition !== filters.typeCompetition) return false;
+        if (
+          filters.typeCompetitions?.length &&
+          (!c.typeCompetition || !filters.typeCompetitions.includes(c.typeCompetition))
+        ) {
+          return false;
+        }
         if (filters.categories?.length && (!c.categorie || !filters.categories.includes(c.categorie))) {
           return false;
         }

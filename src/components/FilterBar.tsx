@@ -11,7 +11,10 @@ interface Props {
 
 export default function FilterBar({ categories, competitionTypes, filters, onFilterChange }: Props) {
   const [typeMenuOpen, setTypeMenuOpen] = useState(false);
-  const selectedType = competitionTypes.find((type) => type.label === filters.typeCompetition);
+  const selectedTypes = filters.typeCompetitions ?? [];
+  const selectedType = selectedTypes.length === 1
+    ? competitionTypes.find((type) => type.label === selectedTypes[0])
+    : undefined;
 
   const toggleCategory = (category: string) => {
     const selected = filters.categories ?? [];
@@ -21,9 +24,11 @@ export default function FilterBar({ categories, competitionTypes, filters, onFil
     onFilterChange({ ...filters, categories: nextCategories.length ? nextCategories : undefined });
   };
 
-  const selectType = (typeCompetition?: string) => {
-    onFilterChange({ ...filters, typeCompetition });
-    setTypeMenuOpen(false);
+  const toggleType = (typeCompetition: string) => {
+    const nextTypes = selectedTypes.includes(typeCompetition)
+      ? selectedTypes.filter((value) => value !== typeCompetition)
+      : [...selectedTypes, typeCompetition];
+    onFilterChange({ ...filters, typeCompetitions: nextTypes.length ? nextTypes : undefined });
   };
 
   return (
@@ -38,18 +43,18 @@ export default function FilterBar({ categories, competitionTypes, filters, onFil
         >
           <span className={styles.typeSelectLabel}>
             {selectedType && <span className={styles.colorDot} style={selectedType.color ? { backgroundColor: selectedType.color } : undefined} />}
-            {selectedType?.label ?? 'Tous les types de compétition'}
+            {selectedType?.label ?? (selectedTypes.length ? `${selectedTypes.length} types sélectionnés` : 'Tous les types de compétition')}
           </span>
           <span aria-hidden="true">▾</span>
         </button>
         {typeMenuOpen && (
-          <div className={styles.typeMenu} role="listbox" aria-label="Type de compétition">
+          <div className={styles.typeMenu} role="listbox" aria-label="Types de compétition" aria-multiselectable="true">
             <button
               type="button"
               className={styles.typeOption}
               role="option"
-              aria-selected={!filters.typeCompetition}
-              onClick={() => selectType()}
+              aria-selected={!selectedTypes.length}
+              onClick={() => onFilterChange({ ...filters, typeCompetitions: undefined })}
             >
               Tous les types de compétition
             </button>
@@ -59,8 +64,8 @@ export default function FilterBar({ categories, competitionTypes, filters, onFil
                 type="button"
                 className={styles.typeOption}
                 role="option"
-                aria-selected={filters.typeCompetition === type.label}
-                onClick={() => selectType(type.label)}
+                aria-selected={selectedTypes.includes(type.label)}
+                onClick={() => toggleType(type.label)}
               >
                 <span className={styles.colorDot} style={type.color ? { backgroundColor: type.color } : undefined} />
                 {type.label}
@@ -92,7 +97,7 @@ export default function FilterBar({ categories, competitionTypes, filters, onFil
         </fieldset>
       )}
 
-      {(filters.typeCompetition || filters.categories?.length) && (
+      {(filters.typeCompetitions?.length || filters.categories?.length) && (
         <button className={styles.reset} onClick={() => onFilterChange({})}>
           Effacer les filtres
         </button>

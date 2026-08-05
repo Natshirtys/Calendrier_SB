@@ -138,6 +138,15 @@ export default function Calendar() {
                   }}
                 >
                   <span className={styles.eventChoiceTitle}>{event.titre}</span>
+                  {event.typeCompetition && (
+                    <span className={styles.eventChoiceType}>
+                      <span
+                        className={styles.eventChoiceDot}
+                        style={event.couleur ? { backgroundColor: event.couleur } : undefined}
+                      />
+                      {event.typeCompetition}
+                    </span>
+                  )}
                   <span className={styles.eventChoiceMeta}>
                     {[event.heureDebut, event.lieu.nom, event.categorie].filter(Boolean).join(' · ')}
                   </span>
