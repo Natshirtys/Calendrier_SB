@@ -14,6 +14,27 @@ export interface CompetitionTypeOption {
   color?: string;
 }
 
+export function filterConcours(allConcours: Concours[], filters: Filters): Concours[] {
+  return allConcours
+    .filter((c) => {
+      if (
+        filters.typeCompetitions?.length &&
+        (!c.typeCompetition || !filters.typeCompetitions.includes(c.typeCompetition))
+      ) {
+        return false;
+      }
+      if (filters.categories?.length && (!c.categorie || !filters.categories.includes(c.categorie))) {
+        return false;
+      }
+      if (filters.mois !== undefined && filters.annee !== undefined) {
+        const d = new Date(c.date);
+        if (d.getMonth() !== filters.mois || d.getFullYear() !== filters.annee) return false;
+      }
+      return true;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+}
+
 interface ConcoursSource {
   allConcours: Concours[];
   loading: boolean;
@@ -44,25 +65,7 @@ export function useConcours() {
   const { allConcours, loading, error } = source;
 
   const filtered = useMemo(() => {
-    return allConcours
-      .filter((c) => {
-        if (
-          filters.typeCompetitions?.length &&
-          (!c.typeCompetition || !filters.typeCompetitions.includes(c.typeCompetition))
-        ) {
-          return false;
-        }
-        if (filters.categories?.length && (!c.categorie || !filters.categories.includes(c.categorie))) {
-          return false;
-        }
-        if (filters.mois !== undefined && filters.annee !== undefined) {
-          const d = new Date(c.date);
-          if (d.getMonth() !== filters.mois || d.getFullYear() !== filters.annee)
-            return false;
-        }
-        return true;
-      })
-      .sort((a, b) => a.date.localeCompare(b.date));
+    return filterConcours(allConcours, filters);
   }, [allConcours, filters]);
 
   const getById = (id: string) => allConcours.find((c) => c.id === id);

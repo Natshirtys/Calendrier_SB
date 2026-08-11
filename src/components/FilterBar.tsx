@@ -7,9 +7,10 @@ interface Props {
   competitionTypes: CompetitionTypeOption[];
   filters: Filters;
   onFilterChange: (filters: Filters) => void;
+  onPrint: () => void;
 }
 
-export default function FilterBar({ categories, competitionTypes, filters, onFilterChange }: Props) {
+export default function FilterBar({ categories, competitionTypes, filters, onFilterChange, onPrint }: Props) {
   const [typeMenuOpen, setTypeMenuOpen] = useState(false);
   const typeFilterRef = useRef<HTMLDivElement>(null);
   const selectedTypes = filters.typeCompetitions ?? [];
@@ -120,6 +121,12 @@ export default function FilterBar({ categories, competitionTypes, filters, onFil
           Effacer les filtres
         </button>
       )}
+      <div className={styles.printArea}>
+        <button type="button" className={styles.print} onClick={onPrint}>
+          Imprimer le calendrier
+        </button>
+        <span className={styles.printHint}>Les filtres actifs seront appliqués à l’impression.</span>
+      </div>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import ConcoursList from './components/ConcoursList';
 import Calendar from './components/Calendar';
 import ConcoursDetail from './components/ConcoursDetail';
+import PrintCalendar from './components/PrintCalendar';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
           <Route path="/" element={<ConcoursList />} />
           <Route path="/calendrier" element={<Calendar />} />
           <Route path="/concours/:id" element={<ConcoursDetail />} />
+          <Route path="/imprimer" element={<PrintCalendar />} />
         </Routes>
       </main>
     </BrowserRouter>

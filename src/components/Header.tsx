@@ -10,7 +10,7 @@ export default function Header() {
           alt="Logo du Comité Bouliste de l'Allier"
           className={styles.logo}
         />
-        <h1 className={styles.title}>Concours Boules Lyonnaises</h1>
+        <h1 className={styles.title}>Calendrier CBDA pour la saison 2026-2027</h1>
       </div>
       <nav className={styles.nav}>
         <NavLink
