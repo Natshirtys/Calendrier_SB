@@ -1,4 +1,4 @@
-import { createContext, createElement, useContext, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { createContext, createElement, useContext, useEffect, useMemo, useState, type Dispatch, type ReactNode, type SetStateAction } from 'react';
 import { fetchConcoursFromGoogleSheet } from '../services/googleSheet';
 import type { Concours } from '../types/concours';
 
@@ -39,30 +39,32 @@ interface ConcoursSource {
   allConcours: Concours[];
   loading: boolean;
   error: string | null;
+  filters: Filters;
+  setFilters: Dispatch<SetStateAction<Filters>>;
 }
 
 const ConcoursContext = createContext<ConcoursSource | null>(null);
 
 export function ConcoursProvider({ children }: { children: ReactNode }) {
-  const [source, setSource] = useState<ConcoursSource>({ allConcours: [], loading: true, error: null });
+  const [filters, setFilters] = useState<Filters>({});
+  const [source, setSource] = useState<ConcoursSource>({ allConcours: [], loading: true, error: null, filters: {}, setFilters });
 
   useEffect(() => {
     fetchConcoursFromGoogleSheet()
-      .then((allConcours) => setSource({ allConcours, loading: false, error: null }))
+      .then((allConcours) => setSource({ allConcours, loading: false, error: null, filters: {}, setFilters }))
       .catch((reason: unknown) => {
         const error = reason instanceof Error ? reason.message : 'Impossible de charger le calendrier.';
-        setSource({ allConcours: [], loading: false, error });
+        setSource({ allConcours: [], loading: false, error, filters: {}, setFilters });
       });
   }, []);
 
-  return createElement(ConcoursContext.Provider, { value: source }, children);
+  return createElement(ConcoursContext.Provider, { value: { ...source, filters, setFilters } }, children);
 }
 
 export function useConcours() {
-  const [filters, setFilters] = useState<Filters>({});
   const source = useContext(ConcoursContext);
   if (!source) throw new Error('useConcours doit être utilisé dans ConcoursProvider.');
-  const { allConcours, loading, error } = source;
+  const { allConcours, loading, error, filters, setFilters } = source;
 
   const filtered = useMemo(() => {
     return filterConcours(allConcours, filters);
