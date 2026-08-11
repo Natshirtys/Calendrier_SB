@@ -198,6 +198,9 @@ export default function ConcoursDetail() {
               Ajouter à Google Calendar
             </a>
             <button type="button" className={styles.gcalBtn} onClick={() => downloadIcs(concours)}>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M16.67 13.13c-.02-2.18 1.78-3.23 1.86-3.28-1.02-1.49-2.6-1.69-3.16-1.71-1.33-.14-2.63.8-3.31.8-.69 0-1.73-.78-2.86-.76-1.47.02-2.85.87-3.61 2.18-1.57 2.71-.4 6.7 1.1 8.89.75 1.07 1.62 2.27 2.76 2.23 1.12-.05 1.54-.71 2.89-.71 1.34 0 1.74.71 2.9.68 1.2-.02 1.96-1.08 2.68-2.16.86-1.23 1.2-2.45 1.22-2.51-.03-.01-2.44-.93-2.47-3.65ZM14.51 6.73c.6-.75 1.01-1.77.9-2.8-.87.04-1.96.6-2.59 1.33-.56.65-1.06 1.71-.94 2.69.98.07 1.99-.5 2.63-1.22Z"/>
+              </svg>
               Ajouter au calendrier Apple / iOS
             </button>
             </div>

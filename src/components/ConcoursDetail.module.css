@@ -139,6 +139,7 @@
 
 .calendarActions .gcalBtn {
   margin-top: 0;
+  min-height: 36px;
 }
 
 .notFound {
