@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import {
   startOfMonth,
   endOfMonth,
@@ -19,7 +19,12 @@ import type { Concours } from '../types/concours';
 import styles from './Calendar.module.css';
 
 export default function Calendar() {
-  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [searchParams, setSearchParams] = useSearchParams();
+  const monthFromUrl = searchParams.get('mois');
+  const initialMonth = monthFromUrl && /^\d{4}-\d{2}$/.test(monthFromUrl)
+    ? new Date(`${monthFromUrl}-01T00:00:00`)
+    : new Date();
+  const [currentMonth, setCurrentMonth] = useState(initialMonth);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const { allConcours } = useConcours();
   const navigate = useNavigate();
@@ -40,6 +45,24 @@ export default function Calendar() {
     allConcours.filter((c) => isSameDay(new Date(c.date + 'T00:00:00'), date));
   const selectedEvents: Concours[] = selectedDate ? concoursParJour(selectedDate) : [];
 
+  const changeMonth = (month: Date) => {
+    setCurrentMonth(month);
+    setSearchParams({ mois: format(month, 'yyyy-MM') }, { replace: true });
+  };
+
+  const openConcours = (id: string) => {
+    const month = format(currentMonth, 'yyyy-MM');
+    navigate(`/concours/${id}`, {
+      state: {
+        from: {
+          pathname: '/calendrier',
+          search: `?mois=${month}`,
+          label: 'Retour au calendrier',
+        },
+      },
+    });
+  };
+
   useEffect(() => {
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setSelectedDate(null);
@@ -51,13 +74,13 @@ export default function Calendar() {
   return (
     <div>
       <div className={styles.header}>
-        <button className={styles.navBtn} onClick={() => setCurrentMonth(subMonths(currentMonth, 1))}>
+        <button className={styles.navBtn} onClick={() => changeMonth(subMonths(currentMonth, 1))}>
           &larr;
         </button>
         <h2 className={styles.monthTitle}>
           {format(currentMonth, 'MMMM yyyy', { locale: fr })}
         </h2>
-        <button className={styles.navBtn} onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}>
+        <button className={styles.navBtn} onClick={() => changeMonth(addMonths(currentMonth, 1))}>
           &rarr;
         </button>
       </div>
@@ -80,7 +103,7 @@ export default function Calendar() {
               className={`${styles.cell} ${!inMonth ? styles.outside : ''} ${today ? styles.today : ''} ${events.length > 0 ? styles.hasEvents : ''}`}
               onClick={() => {
                 if (events.length === 1) {
-                  navigate(`/concours/${events[0].id}`);
+                  openConcours(events[0].id);
                 } else if (events.length > 1) {
                   setSelectedDate(d);
                 }
@@ -134,7 +157,7 @@ export default function Calendar() {
                   className={styles.eventChoice}
                   onClick={() => {
                     setSelectedDate(null);
-                    navigate(`/concours/${event.id}`);
+                    openConcours(event.id);
                   }}
                 >
                   <span className={styles.eventChoiceTitle}>{event.titre}</span>

@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { useConcours } from '../hooks/useConcours';
@@ -37,8 +37,10 @@ function buildGoogleCalendarUrl(c: Concours): string {
 
 export default function ConcoursDetail() {
   const { id } = useParams<{ id: string }>();
+  const location = useLocation();
   const { getById, loading, error } = useConcours();
   const concours = getById(id!);
+  const returnTarget = (location.state as { from?: { pathname: string; search?: string; label: string } } | null)?.from;
   const [lightbox, setLightbox] = useState(false);
 
   const closeLightbox = useCallback(() => setLightbox(false), []);
@@ -61,7 +63,9 @@ export default function ConcoursDetail() {
       <div className={styles.notFound}>
         <h2>{error ? 'Calendrier indisponible' : 'Concours introuvable'}</h2>
         {error && <p>{error}</p>}
-        <Link to="/">Retour à la liste</Link>
+        <Link to={returnTarget ? { pathname: returnTarget.pathname, search: returnTarget.search } : '/'}>
+          {returnTarget?.label ?? 'Retour à la liste'}
+        </Link>
       </div>
     );
   }
@@ -72,7 +76,9 @@ export default function ConcoursDetail() {
 
   return (
     <div className={styles.detail}>
-      <Link to="/" className={styles.back}>&larr; Retour à la liste</Link>
+      <Link to={returnTarget ? { pathname: returnTarget.pathname, search: returnTarget.search } : '/'} className={styles.back}>
+        &larr; {returnTarget?.label ?? 'Retour à la liste'}
+      </Link>
 
       <h2 className={styles.title}>{concours.titre}</h2>
 
