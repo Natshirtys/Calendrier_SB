@@ -11,6 +11,7 @@ export default function ConcoursList() {
   const [viewMode, setViewMode] = useState<'list' | 'grid'>(() =>
     window.localStorage.getItem('concours-view-mode') === 'grid' ? 'grid' : 'list',
   );
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const monthGroups = useMemo(() => {
     const groups = new Map<string, typeof concours>();
     concours.forEach((event) => {
@@ -36,6 +37,12 @@ export default function ConcoursList() {
   useEffect(() => {
     window.localStorage.setItem('concours-view-mode', viewMode);
   }, [viewMode]);
+
+  const activeFiltersCount = (filters.typeCompetitions?.length ?? 0) + (filters.categories?.length ?? 0);
+
+  const scrollToMonth = (monthKey: string) => {
+    document.getElementById(`mois-${monthKey}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className={styles.page}>
@@ -75,12 +82,33 @@ export default function ConcoursList() {
             Grille
           </button>
         </div>
-        <FilterBar
-          categories={categories}
-          competitionTypes={competitionTypes}
-          filters={filters}
-          onFilterChange={setFilters}
-        />
+        <div className={styles.mobileTools}>
+          <label className={styles.monthSelectLabel}>
+            Aller au mois
+            <select onChange={(event) => event.target.value && scrollToMonth(event.target.value)} defaultValue="">
+              <option value="" disabled>Choisir un mois</option>
+              {monthGroups.map((month) => (
+                <option value={month.key} key={month.key}>{month.label}</option>
+              ))}
+            </select>
+          </label>
+          <button
+            type="button"
+            className={styles.mobileFilterToggle}
+            aria-expanded={mobileFiltersOpen}
+            onClick={() => setMobileFiltersOpen((open) => !open)}
+          >
+            Filtres{activeFiltersCount ? ` · ${activeFiltersCount}` : ''}
+          </button>
+        </div>
+        <div className={`${styles.filterPanel} ${mobileFiltersOpen ? styles.filterPanelOpen : ''}`}>
+          <FilterBar
+            categories={categories}
+            competitionTypes={competitionTypes}
+            filters={filters}
+            onFilterChange={setFilters}
+          />
+        </div>
       </div>
       {loading ? (
         <p className={styles.empty}>Chargement du calendrier…</p>

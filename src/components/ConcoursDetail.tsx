@@ -35,6 +35,54 @@ function buildGoogleCalendarUrl(c: Concours): string {
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
+function formatIcsDate(date: Date): string {
+  return date.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+}
+
+function escapeIcs(value: string): string {
+  return value.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\r?\n/g, '\\n');
+}
+
+function buildIcsContent(c: Concours): string {
+  const date = c.date.replace(/-/g, '');
+  const location = [c.lieu.nom, c.lieu.adresse, c.lieu.codePostal, c.lieu.ville].filter(Boolean).join(', ');
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Calendrier CBDA//FR',
+    'BEGIN:VEVENT',
+    `UID:${c.id}@calendrier-cbda`,
+    `DTSTAMP:${formatIcsDate(new Date())}`,
+    `SUMMARY:${escapeIcs(c.titre)}`,
+    `LOCATION:${escapeIcs(location)}`,
+    `DESCRIPTION:${escapeIcs(c.description ?? '')}`,
+  ];
+
+  if (c.heureDebut) {
+    const start = `${date}T${c.heureDebut.replace(':', '')}00`;
+    const [hours, minutes] = c.heureDebut.split(':').map(Number);
+    const end = `${date}T${String(Math.min(hours + 4, 23)).padStart(2, '0')}${String(minutes).padStart(2, '0')}00`;
+    lines.push(`DTSTART:${start}`, `DTEND:${end}`);
+  } else {
+    const nextDay = new Date(`${c.date}T00:00:00`);
+    nextDay.setDate(nextDay.getDate() + 1);
+    lines.push(`DTSTART;VALUE=DATE:${date}`, `DTEND;VALUE=DATE:${nextDay.toISOString().slice(0, 10).replace(/-/g, '')}`);
+  }
+
+  lines.push('END:VEVENT', 'END:VCALENDAR', '');
+  return lines.join('\r\n');
+}
+
+function downloadIcs(c: Concours) {
+  const blob = new Blob([buildIcsContent(c)], { type: 'text/calendar;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = `concours-${c.date}-${c.id}.ics`;
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
 export default function ConcoursDetail() {
   const { id } = useParams<{ id: string }>();
   const location = useLocation();
@@ -73,6 +121,9 @@ export default function ConcoursDetail() {
   const dateObj = new Date(concours.date + 'T00:00:00');
   const dateFormatted = format(dateObj, 'EEEE d MMMM yyyy', { locale: fr });
   const isPdf = concours.affiche?.toLowerCase().endsWith('.pdf');
+  const lieuLines = [concours.lieu.nom, concours.lieu.adresse, `${concours.lieu.codePostal} ${concours.lieu.ville}`.trim()]
+    .filter(Boolean)
+    .filter((line, index, lines) => lines.findIndex((other) => other.toLocaleLowerCase('fr') === line.toLocaleLowerCase('fr')) === index);
 
   return (
     <div className={styles.detail}>
@@ -128,6 +179,7 @@ export default function ConcoursDetail() {
               Début : {concours.heureDebut}
               {concours.heureFin && ` — Fin : ${concours.heureFin}`}
             </p>
+            <div className={styles.calendarActions}>
             <a
               href={buildGoogleCalendarUrl(concours)}
               target="_blank"
@@ -145,13 +197,17 @@ export default function ConcoursDetail() {
               </svg>
               Ajouter à Google Calendar
             </a>
+            <button type="button" className={styles.gcalBtn} onClick={() => downloadIcs(concours)}>
+              Ajouter au calendrier Apple / iOS
+            </button>
+            </div>
           </section>
 
           <section className={styles.section}>
             <h3>Lieu</h3>
-            <p className={styles.lieuNom}>{concours.lieu.nom}</p>
-            <p>{concours.lieu.adresse}</p>
-            <p>{concours.lieu.codePostal} {concours.lieu.ville}</p>
+            {lieuLines.map((line, index) => (
+              <p key={line} className={index === 0 ? styles.lieuNom : undefined}>{line}</p>
+            ))}
           </section>
 
           <section className={styles.section}>

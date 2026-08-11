@@ -90,6 +90,12 @@
   text-decoration: none;
 }
 
+.mobileTools,
+.mobileFilterToggle,
+.monthSelectLabel {
+  display: none;
+}
+
 .viewToggle {
   display: inline-flex;
   margin-bottom: 0.75rem;
@@ -179,7 +185,60 @@
     display: none;
   }
 
+  .monthSection {
+    scroll-margin-top: 120px;
+  }
+
   .controls {
-    top: 112px;
+    position: static;
+    margin: 0 0 1rem;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .mobileTools {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .monthSelectLabel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.2rem;
+    color: var(--color-text-light);
+    font-size: 0.75rem;
+  }
+
+  .monthSelectLabel select {
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font: inherit;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .mobileFilterToggle {
+    display: block;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    color: var(--color-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.5rem 0.7rem;
+  }
+
+  .filterPanel {
+    display: none;
+  }
+
+  .filterPanelOpen {
+    display: block;
   }
 }
