@@ -132,6 +132,17 @@
   margin-bottom: 0.15rem;
 }
 
+.organisateur {
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+.compact .organisateur {
+  font-size: 0.74rem;
+}
+
 .dotation {
   font-size: 0.85rem;
   color: var(--color-accent);
