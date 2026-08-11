@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { CompetitionTypeOption, Filters } from '../hooks/useConcours';
 import styles from './FilterBar.module.css';
 
@@ -11,6 +11,7 @@ interface Props {
 
 export default function FilterBar({ categories, competitionTypes, filters, onFilterChange }: Props) {
   const [typeMenuOpen, setTypeMenuOpen] = useState(false);
+  const typeFilterRef = useRef<HTMLDivElement>(null);
   const selectedTypes = filters.typeCompetitions ?? [];
   const selectedType = selectedTypes.length === 1
     ? competitionTypes.find((type) => type.label === selectedTypes[0])
@@ -31,9 +32,26 @@ export default function FilterBar({ categories, competitionTypes, filters, onFil
     onFilterChange({ ...filters, typeCompetitions: nextTypes.length ? nextTypes : undefined });
   };
 
+  useEffect(() => {
+    const closeMenu = (event: MouseEvent) => {
+      if (typeFilterRef.current && !typeFilterRef.current.contains(event.target as Node)) {
+        setTypeMenuOpen(false);
+      }
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setTypeMenuOpen(false);
+    };
+    document.addEventListener('mousedown', closeMenu);
+    document.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.removeEventListener('mousedown', closeMenu);
+      document.removeEventListener('keydown', closeOnEscape);
+    };
+  }, []);
+
   return (
     <div className={styles.bar}>
-      <div className={styles.typeFilter}>
+      <div className={styles.typeFilter} ref={typeFilterRef}>
         <button
           type="button"
           className={styles.typeSelect}

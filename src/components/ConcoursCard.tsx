@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import type { Concours } from '../types/concours';
-import { TYPE_CONCOURS_LABELS } from '../types/concours';
 import styles from './ConcoursCard.module.css';
 
 interface Props {
@@ -29,7 +28,7 @@ export default function ConcoursCard({ concours }: Props) {
         <h3 className={styles.title}>{concours.titre}</h3>
         <div className={styles.meta}>
           <span className={styles.badge} style={concours.couleur ? { backgroundColor: concours.couleur } : undefined}>
-            {TYPE_CONCOURS_LABELS[concours.type]}
+            {concours.typeCompetition ?? 'Type non renseigné'}
           </span>
           {concours.categorie && <span className={styles.categorie}>{concours.categorie}</span>}
         </div>

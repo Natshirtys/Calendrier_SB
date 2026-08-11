@@ -61,4 +61,6 @@ export interface Concours {
   dotation?: string;
   nombreEquipesMax?: number;
   organisateur?: string;
+  arbitres?: string[];
+  delegues?: string[];
 }

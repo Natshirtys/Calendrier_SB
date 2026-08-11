@@ -117,6 +117,10 @@ function parseContact(value: string) {
   return { nom: nom || (email ? 'Contact' : 'CBDA'), ...(telephone && { telephone }), ...(email && { email }) };
 }
 
+function getPeople(row: SheetRow, headers: string[]): string[] {
+  return headers.map((header) => getValue(row, header)).filter(Boolean);
+}
+
 function hash(value: string): string {
   let result = 5381;
   for (let index = 0; index < value.length; index += 1) {
@@ -169,6 +173,8 @@ export async function fetchConcoursFromGoogleSheet(): Promise<Concours[]> {
     const lieu = getValue(row, 'LIEUX');
     const type = getValue(row, 'TYPES COMPETITION');
     const contact = getValue(row, 'REFERENT ET CONTACT');
+    const arbitres = getPeople(row, ['ARBITRE 1', 'ARBITRE 2']);
+    const delegues = getPeople(row, ['DELEGUE 1', 'DELEGUE 2']);
     concours.push({
       id: hash(`${date.date}|${titre}|${lieu}|${index}`),
       titre,
@@ -182,6 +188,8 @@ export async function fetchConcoursFromGoogleSheet(): Promise<Concours[]> {
       categorie: getValue(row, 'CATEGORIE (S)') || undefined,
       organisateur: getValue(row, 'ORGANISATEUR') || undefined,
       description: type || undefined,
+      ...(arbitres.length && { arbitres }),
+      ...(delegues.length && { delegues }),
     });
   });
 

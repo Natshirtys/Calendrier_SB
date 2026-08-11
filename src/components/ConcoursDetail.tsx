@@ -4,7 +4,6 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { useConcours } from '../hooks/useConcours';
 import type { Concours } from '../types/concours';
-import { TYPE_CONCOURS_LABELS } from '../types/concours';
 import styles from './ConcoursDetail.module.css';
 
 function buildGoogleCalendarUrl(c: Concours): string {
@@ -79,7 +78,7 @@ export default function ConcoursDetail() {
 
       <div className={styles.badges}>
         <span className={styles.badge} style={concours.couleur ? { backgroundColor: concours.couleur } : undefined}>
-          {TYPE_CONCOURS_LABELS[concours.type]}
+          {concours.typeCompetition ?? 'Type non renseigné'}
         </span>
         {concours.categorie && <span className={styles.badgeSecondary}>{concours.categorie}</span>}
       </div>
@@ -163,6 +162,14 @@ export default function ConcoursDetail() {
               </p>
             )}
           </section>
+
+          {(concours.arbitres?.length || concours.delegues?.length) && (
+            <section className={styles.section}>
+              <h3>Officiels</h3>
+              {concours.arbitres?.length && <p><strong>Arbitre{concours.arbitres.length > 1 ? 's' : ''} : </strong>{concours.arbitres.join(', ')}</p>}
+              {concours.delegues?.length && <p><strong>Délégué{concours.delegues.length > 1 ? 's' : ''} : </strong>{concours.delegues.join(', ')}</p>}
+            </section>
+          )}
 
           {concours.inscription && (
             <section className={styles.section}>
