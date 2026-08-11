@@ -4,9 +4,44 @@
   color: var(--color-primary);
 }
 
+.viewToggle {
+  display: inline-flex;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius);
+}
+
+.viewButton,
+.viewActive {
+  border: 0;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+}
+
+.viewButton + .viewButton,
+.viewActive + .viewButton,
+.viewButton + .viewActive {
+  border-left: 1px solid var(--color-primary);
+}
+
+.viewActive {
+  background: var(--color-primary);
+  color: white;
+}
+
 .list {
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
 }
 
@@ -23,4 +58,11 @@
   background: #fdecea;
   border-radius: var(--radius);
   padding: 1rem;
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
 }

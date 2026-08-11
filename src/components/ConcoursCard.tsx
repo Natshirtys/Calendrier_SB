@@ -6,9 +6,10 @@ import styles from './ConcoursCard.module.css';
 
 interface Props {
   concours: Concours;
+  compact?: boolean;
 }
 
-export default function ConcoursCard({ concours }: Props) {
+export default function ConcoursCard({ concours, compact = false }: Props) {
   const dateObj = new Date(concours.date + 'T00:00:00');
   const dateFormatted = format(dateObj, 'EEEE d MMMM yyyy', { locale: fr });
   const lieu = [concours.lieu.nom, concours.lieu.ville]
@@ -19,7 +20,7 @@ export default function ConcoursCard({ concours }: Props) {
     .join(' — ');
 
   return (
-    <Link to={`/concours/${concours.id}`} className={styles.card}>
+    <Link to={`/concours/${concours.id}`} className={`${styles.card} ${compact ? styles.compact : ''}`}>
       <div className={styles.dateStrip}>
         <span className={styles.day}>{format(dateObj, 'd')}</span>
         <span className={styles.month}>{format(dateObj, 'MMM', { locale: fr })}</span>

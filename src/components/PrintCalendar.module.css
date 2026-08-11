@@ -146,6 +146,18 @@ td:last-child {
   }
 
   .months {
-    columns: 2;
+    columns: 1;
+  }
+
+  .month {
+    break-inside: auto;
+  }
+
+  .month h2 {
+    break-after: avoid-page;
+  }
+
+  tr {
+    break-inside: avoid;
   }
 }

@@ -15,6 +15,55 @@
   text-decoration: none;
 }
 
+.compact {
+  flex-direction: column;
+  min-width: 0;
+}
+
+.compact .dateStrip {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 0.35rem;
+  min-width: 0;
+  padding: 0.4rem 0.6rem;
+}
+
+.compact .day {
+  font-size: 1.15rem;
+}
+
+.compact .month {
+  margin-top: 0;
+  font-size: 0.7rem;
+}
+
+.compact .content {
+  padding: 0.6rem;
+}
+
+.compact .title {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.compact .meta {
+  gap: 0.25rem;
+}
+
+.compact .badge,
+.compact .categorie {
+  font-size: 0.68rem;
+}
+
+.compact .info {
+  font-size: 0.76rem;
+  overflow-wrap: anywhere;
+}
+
 .dateStrip {
   display: flex;
   flex-direction: column;
