@@ -128,8 +128,7 @@ td:last-child {
     margin: 10mm;
   }
 
-  :global(header),
-  :global(main > :not(.document)) {
+  :global(#root > header) {
     display: none !important;
   }
 
