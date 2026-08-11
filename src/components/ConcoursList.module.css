@@ -8,6 +8,16 @@
   position: relative;
 }
 
+.controls {
+  position: sticky;
+  top: 58px;
+  z-index: 40;
+  margin: -1rem -1rem 1rem;
+  padding: 1rem 1rem 0.25rem;
+  background: var(--color-bg);
+  box-shadow: 0 8px 10px -12px rgba(0, 0, 0, 0.5);
+}
+
 .printAction {
   position: fixed;
   top: 76px;
@@ -167,5 +177,9 @@
 
   .monthNav {
     display: none;
+  }
+
+  .controls {
+    top: 112px;
   }
 }

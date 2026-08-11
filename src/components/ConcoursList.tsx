@@ -55,31 +55,33 @@ export default function ConcoursList() {
         <span>Filtres actifs inclus</span>
       </div>
 
-      <h2 className={styles.heading}>Prochains concours</h2>
-      <div className={styles.viewToggle} role="group" aria-label="Mode d'affichage">
-        <button
-          type="button"
-          className={viewMode === 'list' ? styles.viewActive : styles.viewButton}
-          aria-pressed={viewMode === 'list'}
-          onClick={() => setViewMode('list')}
-        >
-          Liste
-        </button>
-        <button
-          type="button"
-          className={viewMode === 'grid' ? styles.viewActive : styles.viewButton}
-          aria-pressed={viewMode === 'grid'}
-          onClick={() => setViewMode('grid')}
-        >
-          Grille
-        </button>
+      <div className={styles.controls}>
+        <h2 className={styles.heading}>Prochains concours</h2>
+        <div className={styles.viewToggle} role="group" aria-label="Mode d'affichage">
+          <button
+            type="button"
+            className={viewMode === 'list' ? styles.viewActive : styles.viewButton}
+            aria-pressed={viewMode === 'list'}
+            onClick={() => setViewMode('list')}
+          >
+            Liste
+          </button>
+          <button
+            type="button"
+            className={viewMode === 'grid' ? styles.viewActive : styles.viewButton}
+            aria-pressed={viewMode === 'grid'}
+            onClick={() => setViewMode('grid')}
+          >
+            Grille
+          </button>
+        </div>
+        <FilterBar
+          categories={categories}
+          competitionTypes={competitionTypes}
+          filters={filters}
+          onFilterChange={setFilters}
+        />
       </div>
-      <FilterBar
-        categories={categories}
-        competitionTypes={competitionTypes}
-        filters={filters}
-        onFilterChange={setFilters}
-      />
       {loading ? (
         <p className={styles.empty}>Chargement du calendrier…</p>
       ) : error ? (
