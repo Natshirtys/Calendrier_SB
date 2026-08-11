@@ -1,5 +1,5 @@
 .document {
-  max-width: 1100px;
+  max-width: 1180px;
   margin: 0 auto;
 }
 
@@ -23,97 +23,76 @@
 }
 
 .documentHeader {
-  margin-bottom: 1rem;
-  padding-bottom: 0.6rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.4rem;
   border-bottom: 2px solid var(--color-primary);
 }
 
 .documentHeader h1 {
   color: var(--color-primary);
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .documentHeader p {
   color: var(--color-text-light);
-  font-size: 0.82rem;
+  font-size: 0.75rem;
 }
 
-.months {
-  columns: 2 360px;
-  column-gap: 1rem;
-}
-
-.month {
-  break-inside: avoid;
-  margin-bottom: 1rem;
-}
-
-.month h2 {
-  margin-bottom: 0.35rem;
-  color: var(--color-primary);
-  font-size: 1rem;
-  text-transform: capitalize;
-}
-
-table {
+.table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.76rem;
+  table-layout: fixed;
+  font-size: 0.74rem;
 }
 
-th,
-td {
+.table th,
+.table td {
+  overflow: hidden;
   border-bottom: 1px solid var(--color-border);
-  padding: 0.28rem 0.25rem;
+  padding: 0.26rem 0.35rem;
   text-align: left;
-  vertical-align: top;
-}
-
-th {
-  color: var(--color-text-light);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-}
-
-td:first-child {
-  width: 60px;
+  text-overflow: ellipsis;
+  vertical-align: middle;
   white-space: nowrap;
 }
 
-td:last-child {
-  width: 24%;
+.table thead th {
+  color: var(--color-text-light);
+  font-size: 0.66rem;
+  text-transform: uppercase;
 }
 
-.type,
-.title,
-.category {
-  display: block;
-}
+.date { width: 8%; }
+.time { width: 6%; }
+.type { width: 16%; }
+.title { width: 34%; font-weight: 600; }
+.category { width: 10%; }
+.place { width: 18%; }
+.official { width: 12%; }
 
-.type {
+.monthRow th {
+  border-top: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+  background: #eaf2f8;
   color: var(--color-primary);
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .dot {
   display: inline-block;
-  width: 0.58rem;
-  height: 0.58rem;
+  width: 0.55rem;
+  height: 0.55rem;
   margin-right: 0.25rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 50%;
   background: var(--color-primary-light);
   print-color-adjust: exact;
-}
-
-.title {
-  font-weight: 600;
-}
-
-.category {
-  color: var(--color-text-light);
-  font-size: 0.68rem;
 }
 
 .status,
@@ -124,8 +103,8 @@ td:last-child {
 
 @media print {
   @page {
-    size: A4 portrait;
-    margin: 10mm;
+    size: A4 landscape;
+    margin: 8mm;
   }
 
   :global(#root > header) {
@@ -137,27 +116,13 @@ td:last-child {
     padding: 0 !important;
   }
 
-  .toolbar {
-    display: none;
-  }
-
-  .document {
-    max-width: none;
-  }
-
-  .months {
-    columns: 1;
-  }
-
-  .month {
-    break-inside: auto;
-  }
-
-  .month h2 {
-    break-after: avoid-page;
-  }
-
-  tr {
-    break-inside: avoid;
-  }
+  .toolbar { display: none; }
+  .document { max-width: none; }
+  .documentHeader { margin-bottom: 0.45rem; }
+  .table { font-size: 0.68rem; }
+  .table th,
+  .table td { padding: 0.2rem 0.28rem; }
+  .table thead { display: table-header-group; }
+  .table tr { break-inside: avoid; }
+  .monthRow { break-after: avoid-page; }
 }

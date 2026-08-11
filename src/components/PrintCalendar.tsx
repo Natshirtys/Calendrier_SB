@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { Fragment, useEffect, useMemo, useRef } from 'react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { useSearchParams } from 'react-router-dom';
@@ -36,6 +36,8 @@ export default function PrintCalendar() {
       events,
     }));
   }, [concours]);
+  const hasArbitres = concours.some((event) => event.arbitres?.length);
+  const hasDelegues = concours.some((event) => event.delegues?.length);
 
   useEffect(() => {
     if (loading || error || printRequested.current) return;
@@ -61,31 +63,44 @@ export default function PrintCalendar() {
       {concours.length === 0 ? (
         <p className={styles.empty}>Aucune compétition ne correspond aux filtres sélectionnés.</p>
       ) : (
-        <div className={styles.months}>
-          {months.map((month) => (
-            <section className={styles.month} key={month.key}>
-              <h2>{month.label}</h2>
-              <table>
-                <thead>
-                  <tr><th>Date</th><th>Type et compétition</th><th>Lieu</th></tr>
-                </thead>
-                <tbody>
-                  {month.events.map((event) => (
-                    <tr key={event.id}>
-                      <td>{format(new Date(`${event.date}T00:00:00`), 'EEE d', { locale: fr })}{event.heureDebut && ` ${event.heureDebut}`}</td>
-                      <td>
-                        <span className={styles.type}><span className={styles.dot} style={event.couleur ? { backgroundColor: event.couleur } : undefined} />{event.typeCompetition}</span>
-                        <span className={styles.title}>{event.titre}</span>
-                        {event.categorie && <span className={styles.category}>{event.categorie}</span>}
-                      </td>
-                      <td>{event.lieu.nom}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </section>
-          ))}
-        </div>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th className={styles.date}>Date</th>
+              <th className={styles.time}>Heure</th>
+              <th className={styles.type}>Type</th>
+              <th className={styles.title}>Compétition</th>
+              <th className={styles.category}>Cat.</th>
+              <th className={styles.place}>Lieu</th>
+              {hasArbitres && <th className={styles.official}>Arbitre</th>}
+              {hasDelegues && <th className={styles.official}>Délégué</th>}
+            </tr>
+          </thead>
+          <tbody>
+            {months.map((month) => (
+              <Fragment key={month.key}>
+                <tr className={styles.monthRow}>
+                  <th colSpan={6 + Number(hasArbitres) + Number(hasDelegues)}>{month.label}</th>
+                </tr>
+                {month.events.map((event) => (
+                  <tr key={event.id}>
+                    <td className={styles.date}>{format(new Date(`${event.date}T00:00:00`), 'EEE d', { locale: fr })}</td>
+                    <td className={styles.time}>{event.heureDebut || '—'}</td>
+                    <td className={styles.type} title={event.typeCompetition}>
+                      <span className={styles.dot} style={event.couleur ? { backgroundColor: event.couleur } : undefined} />
+                      {event.typeCompetition ?? '—'}
+                    </td>
+                    <td className={styles.title} title={event.titre}>{event.titre}</td>
+                    <td className={styles.category}>{event.categorie || '—'}</td>
+                    <td className={styles.place} title={event.lieu.nom}>{event.lieu.nom || '—'}</td>
+                    {hasArbitres && <td className={styles.official} title={event.arbitres?.join(', ')}>{event.arbitres?.join(', ') || '—'}</td>}
+                    {hasDelegues && <td className={styles.official} title={event.delegues?.join(', ')}>{event.delegues?.join(', ') || '—'}</td>}
+                  </tr>
+                ))}
+              </Fragment>
+            ))}
+          </tbody>
+        </table>
       )}
     </article>
   );

@@ -5,11 +5,19 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.brand}>
-        <img
-          src="/images/logo-cbda-mini.jpg"
-          alt="Logo du Comité Bouliste de l'Allier"
-          className={styles.logo}
-        />
+        <a
+          href="https://comitesportboulesdelallier.fr"
+          className={styles.logoLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Accéder au site du Comité Sport Boules de l'Allier"
+        >
+          <img
+            src="/images/logo-cbda-mini.jpg"
+            alt="Site du Comité Sport Boules de l'Allier"
+            className={styles.logo}
+          />
+        </a>
         <h1 className={styles.title}>Calendrier CBDA pour la saison 2026-2027</h1>
       </div>
       <nav className={styles.nav}>
